@@ -7,6 +7,12 @@ module.exports = {
     filename: "app.bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
+  devServer: {
+    static: "./dist",
+    port: 3000,
+    open: true,
+    historyApiFallback: true,
+  },
   module: {
     rules: [
       {
