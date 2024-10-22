@@ -1,9 +1,5 @@
 import { initMap } from "./initMap";
 
-/**
- * @yuxincxoi 24.10.02
- * * 카카오맵 API 동적으로 로드
- */
 export const loadMap = () => {
   return new Promise<typeof window.kakao.maps>((resolve, reject) => {
     if (window.kakao && window.kakao.maps) {
