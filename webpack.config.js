@@ -14,9 +14,18 @@ module.exports = {
         use: "babel-loader",
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(ts|tsx)$/, // 타스인지 확인할거야
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
     ],
   },
   resolve: {
-    extensions: [".ts", ".js", "jsx", "tsx"],
+    extensions: [".ts", ".js", ".jsx", ".tsx", ".css"],
   },
 };
