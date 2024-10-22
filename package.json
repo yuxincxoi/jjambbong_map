@@ -5,6 +5,7 @@
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
     "css-loader": "^7.1.2",
+    "kakao.maps.d.ts": "^0.1.40",
     "style-loader": "^4.0.0",
     "ts-loader": "^9.5.1",
     "typescript": "^5.6.3",
