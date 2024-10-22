@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "../../style/test.css";
+import Map from "../components/Map";
 
 const App: React.FC = () => {
   return (
-    <div>
-      <h1>Hello world !</h1>
-    </div>
+    <>
+      <Map />
+    </>
   );
 };
 
