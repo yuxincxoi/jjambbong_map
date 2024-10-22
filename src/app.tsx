@@ -1,4 +1,13 @@
-import add from "./module/add.js";
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-const test = add(1, 2);
-console.log(test);
+const App: React.FC = () => {
+  return (
+    <div>
+      <h1>Hello world !</h1>
+    </div>
+  );
+};
+
+const root = ReactDOM.createRoot(document.getElementById("root")!);
+root.render(<App />);
