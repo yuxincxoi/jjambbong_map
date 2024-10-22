@@ -1,45 +1,20 @@
-import { useEffect, useState } from "react";
-import { initMap } from "../modules/map/initMap";
+import { useEffect } from "react";
+import { loadMap } from "../modules/map/loadMap";
 
 const Map = () => {
-  let [map, setMap] = useState();
-
   useEffect(() => {
-    const loadMap = async () => {
-      map = await new Promise<typeof window.kakao.maps>((resolve, reject) => {
-        if (window.kakao && window.kakao.maps) {
-          resolve(window.kakao.maps);
-          return;
-        }
-
-        const mapScript = document.createElement("script");
-
-        // todo : API url 환경변수 설정
-        mapScript.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.VUE_APP_API_KEY}&autoload=false&libraries=services,clusterer,drawing`;
-
-        // 지도 로드된 후 생성
-        mapScript.onload = () => {
-          if (window.kakao && window.kakao.maps) {
-            window.kakao.maps.load(() => {
-              initMap();
-              resolve(window.kakao.maps);
-            });
-          } else {
-            reject(new Error("Kakao Maps API가 로드되지 않았습니다."));
-          }
-        };
-
-        document.head.appendChild(mapScript);
-      });
-    };
-
-    loadMap();
+    loadMap().catch((error) => {
+      console.error("지도 로드 중 오류 발생:", error);
+    });
   }, []);
 
   return (
-    <>
-      <h1>Map</h1>
-    </>
+    <div>
+      <div
+        id="map"
+        className="bg-black w-[70%] h-[600px] rounded-3xl mx-auto"
+      ></div>
+    </div>
   );
 };
 
