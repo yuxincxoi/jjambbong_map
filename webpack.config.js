@@ -2,9 +2,9 @@ const path = require("path");
 
 module.exports = {
   mode: "production", // 또는 "develop"
-  entry: "./src/app.tsx",
+  entry: "./src/pages/index.tsx",
   output: {
-    filename: "app.bundle.js",
+    filename: "index.bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
   devServer: {
