@@ -1,4 +1,15 @@
 const path = require("path");
+const webpack = require("webpack");
+const dotenv = require("dotenv");
+
+// .env.local 파일에서 환경 변수 로드
+const env = dotenv.config({ path: ".env.local" }).parsed;
+
+const definePlugin = new webpack.DefinePlugin({
+  "process.env": {
+    REACT_APP_API_KEY: JSON.stringify(env.REACT_APP_API_KEY || ""), // 기본값 설정
+  },
+});
 
 module.exports = {
   mode: "production", // 또는 "develop"
@@ -34,4 +45,5 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".js", ".jsx", ".tsx", ".css"],
   },
+  plugins: [definePlugin],
 };
