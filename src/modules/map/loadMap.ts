@@ -1,5 +1,7 @@
 import { initMap } from "./initMap";
 
+const API_KEY = process.env.REACT_APP_API_KEY;
+
 export const loadMap = () => {
   return new Promise<typeof window.kakao.maps>((resolve, reject) => {
     if (window.kakao && window.kakao.maps) {
@@ -10,7 +12,7 @@ export const loadMap = () => {
     const mapScript = document.createElement("script");
 
     // todo : API url 환경변수 설정
-    mapScript.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.VUE_APP_API_KEY}&autoload=false&libraries=services,clusterer,drawing`;
+    mapScript.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${API_KEY}&autoload=false&libraries=services,clusterer,drawing`;
 
     // 지도 로드된 후 생성
     mapScript.onload = () => {
