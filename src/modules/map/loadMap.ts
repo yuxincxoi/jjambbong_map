@@ -12,6 +12,7 @@ export const loadMap = () => {
     const mapScript = document.createElement("script");
 
     mapScript.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${API_KEY}&autoload=false&libraries=services,clusterer,drawing`;
+    mapScript.async = true;
 
     // 지도 로드된 후 생성
     mapScript.onload = () => {
