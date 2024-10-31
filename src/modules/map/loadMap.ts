@@ -11,7 +11,6 @@ export const loadMap = () => {
 
     const mapScript = document.createElement("script");
 
-    // todo : API url 환경변수 설정
     mapScript.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${API_KEY}&autoload=false&libraries=services,clusterer,drawing`;
 
     // 지도 로드된 후 생성
