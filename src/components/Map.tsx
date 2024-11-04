@@ -3,9 +3,16 @@ import { loadMap } from "../modules/map/loadMap";
 
 const Map = () => {
   useEffect(() => {
-    loadMap().catch((error) => {
-      console.error("지도 로드 중 오류 발생:", error);
-    });
+    const initializeMap = async () => {
+      try {
+        const maps = await loadMap();
+        console.log("Map initialized successfully");
+      } catch (error) {
+        console.error("Map initialization failed:", error);
+      }
+    };
+
+    initializeMap();
   }, []);
 
   return (
