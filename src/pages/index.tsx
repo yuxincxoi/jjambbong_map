@@ -4,6 +4,7 @@ import "../tailwind.css";
 import Map from "../components/Map";
 import Title from "../components/Title";
 import InputSearch from "../components/InputSearch";
+import PlaceListTable from "../components/PlaceListTable";
 
 const App: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const App: React.FC = () => {
       <Title page="wka" />
       <Map />
       <InputSearch />
+      <PlaceListTable />
     </>
   );
 };
