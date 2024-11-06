@@ -1,8 +1,5 @@
 import { useEffect } from "react";
-
-interface TitleProps {
-  page: string;
-}
+import TitleProps from "../interfaces/components/title.interface";
 
 const Title: React.FC<TitleProps> = ({ page }) => {
   useEffect(() => {
