@@ -4,7 +4,7 @@ import "../tailwind.css";
 import Map from "../components/main/Map";
 import Title from "../components/Title";
 import InputSearch from "../components/main/InputSearch";
-import PlaceListTable from "../components/main/PlaceListTable";
+import PlaceListTable from "../components/main/placeListTable/PlaceListTable";
 
 const App: React.FC = () => {
   return (
