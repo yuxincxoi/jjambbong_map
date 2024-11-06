@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { loadMap } from "../modules/map/loadMap";
+import { loadMap } from "../../modules/map/loadMap";
 
 const Map = () => {
   useEffect(() => {

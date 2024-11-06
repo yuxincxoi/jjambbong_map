@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { searchPlace } from "../modules/map/searchPlace";
+import { searchPlace } from "../../modules/map/searchPlace";
 
 const InputSearch = () => {
   const [searchKeyword, setSearchKeyword] = useState("");

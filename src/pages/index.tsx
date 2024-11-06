@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "../tailwind.css";
-import Map from "../components/Map";
+import Map from "../components/main/Map";
 import Title from "../components/Title";
-import InputSearch from "../components/InputSearch";
-import PlaceListTable from "../components/PlaceListTable";
+import InputSearch from "../components/main/InputSearch";
+import PlaceListTable from "../components/main/PlaceListTable";
 
 const App: React.FC = () => {
   return (
