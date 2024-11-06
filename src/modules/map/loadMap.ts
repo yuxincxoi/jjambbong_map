@@ -1,4 +1,5 @@
 import { initMap } from "./initMap";
+import { searchPlace } from "./searchPlace";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -19,6 +20,7 @@ export const loadMap = () => {
       if (window.kakao && window.kakao.maps) {
         window.kakao.maps.load(() => {
           initMap();
+          searchPlace("대전 짬뽕");
           resolve(window.kakao.maps);
         });
       } else {
