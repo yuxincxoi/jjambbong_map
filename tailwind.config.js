@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}", // 모든 .js, .jsx, .ts, .tsx 파일
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "main-color": "var(--main-color)",
+      },
+    },
   },
   plugins: [],
 };
