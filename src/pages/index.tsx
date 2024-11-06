@@ -7,7 +7,7 @@ import Title from "../components/Title";
 const App: React.FC = () => {
   return (
     <>
-      <Title />
+      <Title page="wka" />
       <Map />
     </>
   );
