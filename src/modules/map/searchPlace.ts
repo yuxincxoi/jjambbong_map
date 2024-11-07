@@ -26,7 +26,7 @@ export const searchPlace = async (searchValue: string) => {
         }));
 
         if (status === kakaoMaps.services.Status.OK) {
-          formattedResult.forEach((place: any) => {
+          result.forEach((place: any) => {
             // 장소의 좌표 생성
             const coords = new kakaoMaps.LatLng(
               Number(place.y),
