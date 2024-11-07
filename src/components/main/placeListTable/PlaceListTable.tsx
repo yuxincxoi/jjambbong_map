@@ -1,6 +1,10 @@
+import { useState } from "react";
 import EachPlace from "./eachPlace/EachPlace";
+import Place from "../../../interfaces/components/main/placeListTable/Place.interface";
 
 const PlaceListTable = () => {
+  const [places, setPlaces] = useState<Place[]>([]);
+
   return (
     <>
       <div className="flex justify-center mt-6">
