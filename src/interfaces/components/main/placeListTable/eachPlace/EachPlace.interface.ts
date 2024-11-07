@@ -1,4 +1,5 @@
+import Place from "../Place.interface";
+
 export default interface EachPlaceProps {
-  placeName: string;
-  address: string;
+  place: Place;
 }
