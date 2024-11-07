@@ -1,4 +1,6 @@
-const EachPlace = () => {
+import EachPlaceProps from "../../../../interfaces/components/main/placeListTable/eachPlace/EachPlace.interface";
+
+const EachPlace: React.FC<EachPlaceProps> = ({ placeName, address }) => {
   return (
     <>
       <div className="bg-white w-[99%] m-1 flex  justify-between">
