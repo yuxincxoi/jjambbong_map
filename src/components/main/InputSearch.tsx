@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { searchPlace } from "../../modules/map/searchPlace";
 import InputSearchProps from "../../interfaces/components/main/InputSearch.interface";
 
-const InputSearch = () => {
+const InputSearch = ({ onSearch }: InputSearchProps) => {
   const [searchKeyword, setSearchKeyword] = useState("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -11,7 +10,7 @@ const InputSearch = () => {
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      searchPlace(searchKeyword);
+      onSearch(searchKeyword);
     }
   };
 
