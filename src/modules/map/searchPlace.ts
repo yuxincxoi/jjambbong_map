@@ -20,8 +20,13 @@ export const searchPlace = async (searchValue: string) => {
     return new Promise<Place[]>((resolve, reject) => {
       // 검색어로 장소 검색
       places.keywordSearch(searchValue, (result: any, status: any) => {
+        const formattedResult: Place[] = result.map((place: any) => ({
+          placeName: place.place_name,
+          address: place.address_name,
+        }));
+
         if (status === kakaoMaps.services.Status.OK) {
-          result.forEach((place: any) => {
+          formattedResult.forEach((place: any) => {
             // 장소의 좌표 생성
             const coords = new kakaoMaps.LatLng(
               Number(place.y),
@@ -38,7 +43,7 @@ export const searchPlace = async (searchValue: string) => {
             const iwContent = `
             <div class="m-2 px-1 w-48">
               <div class="text-lg font-semibold">${place.place_name}</div>
-              <div class="text-sm">${place.road_address_name}</div>
+              <div class="text-sm">${place.address_name}</div>
             </div>
           `;
 
@@ -60,7 +65,7 @@ export const searchPlace = async (searchValue: string) => {
           });
           // 지도 표시 범위 재설정
           map.setBounds(bounds);
-          resolve(result);
+          resolve(formattedResult);
         } else {
           reject("검색 결과가 없습니다.");
         }
