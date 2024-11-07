@@ -23,7 +23,7 @@ const InputSearch = ({ onSearch }: InputSearchProps) => {
           value={searchKeyword}
           onChange={handleInputChange}
           onKeyDown={handleKeyPress}
-          className="w-[40%] h-10 border-2 px-4 rounded-2xl hover:border-main-color focus:outline-none focus:border-main-color"
+          className="w-[25%] h-10 border-2 px-4 rounded-2xl hover:border-main-color focus:outline-none focus:border-main-color"
         />
       </div>
     </>

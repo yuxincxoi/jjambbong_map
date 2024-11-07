@@ -19,7 +19,7 @@ const Map = () => {
     <div>
       <div
         id="map"
-        className="bg-black w-[50%] h-[420px] rounded-3xl mx-auto mt-10"
+        className="bg-black w-[40%] h-[420px] rounded-3xl mx-auto mt-10"
       ></div>
     </div>
   );
