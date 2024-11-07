@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { searchPlace } from "../../modules/map/searchPlace";
+import InputSearchProps from "../../interfaces/components/main/InputSearch.interface";
 
 const InputSearch = () => {
   const [searchKeyword, setSearchKeyword] = useState("");
