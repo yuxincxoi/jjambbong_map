@@ -11,7 +11,6 @@ const App: React.FC = () => {
     <>
       <Title page="wka" />
       <Map />
-      <InputSearch />
       <PlaceListTable />
     </>
   );
