@@ -1,4 +1,5 @@
 import { loadMap } from "./loadMap";
+import Place from "../../interfaces/components/main/placeListTable/Place.interface";
 
 export const searchPlace = async (searchValue: string) => {
   try {
@@ -16,7 +17,7 @@ export const searchPlace = async (searchValue: string) => {
     // 지도 표시 범위 관리하는 객체 생성
     const bounds = new kakaoMaps.LatLngBounds();
 
-    return new Promise((resolve, reject) => {
+    return new Promise<Place[]>((resolve, reject) => {
       // 검색어로 장소 검색
       places.keywordSearch(searchValue, (result: any, status: any) => {
         if (status === kakaoMaps.services.Status.OK) {
