@@ -13,7 +13,7 @@ const definePlugin = new webpack.DefinePlugin({
 
 module.exports = {
   mode: "production", // 또는 "develop"
-  entry: "./src/pages/index.tsx",
+  entry: "./src/index.tsx",
   output: {
     filename: "index.bundle.js",
     path: path.resolve(__dirname, "dist"),
