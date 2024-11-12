@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Title from "../components/Title";
 
 export default function LikePage() {
   return (
     <div>
       <h1>Like Page</h1>
+      <Title />
       <Link to="/">
         <button className="px-2 py-1 bg-main-color text-white rounded mr-2 hover:border-main-color hover:text-main-color hover:bg-white">
           Go to Home Page
