@@ -11,13 +11,19 @@ const MainPage: React.FC = () => {
       <Map />
       <PlaceListTable />
       <Link to="/">
-        <button>Go to Home Page</button>
+        <button className="px-2 py-1 bg-main-color text-white rounded mr-2 hover:border-main-color hover:text-main-color hover:bg-white">
+          Go to Home Page
+        </button>
       </Link>
       <Link to="/myPage">
-        <button>Go to My Page</button>
+        <button className="px-2 py-1 bg-main-color text-white rounded mr-2 hover:border-main-color hover:text-main-color hover:bg-white">
+          Go to My Page
+        </button>
       </Link>
       <Link to="/likePage">
-        <button>Go to Like Page</button>
+        <button className="px-2 py-1 bg-main-color text-white rounded mr-2 hover:border-main-color hover:text-main-color hover:bg-white">
+          Go to Like Page
+        </button>
       </Link>
     </>
   );
