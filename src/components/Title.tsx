@@ -11,19 +11,27 @@ const Title: React.FC = () => {
     if (page === "likePage" && title) {
       newTitle = (
         <>
-          I <span className="text-main-color">LIKE</span> 짬뽕
+          I <span className="text-main-color font-extrabold">LIKE</span> 짬뽕
         </>
       );
     } else if (page === "myPage" && title) {
       newTitle = (
         <>
-          <span className="text-main-color">I</span> LIKE 짬뽕
+          <span className="text-main-color font-extrabold">I</span> LIKE 짬뽕
         </>
       );
-    } else if (title) {
+    } else if (page === "mainPage" && title) {
       newTitle = (
         <>
-          I LIKE <span className="text-main-color">짬뽕</span>
+          I LIKE <span className="text-main-color font-extrabold">짬뽕</span>
+        </>
+      );
+    } else {
+      newTitle = (
+        <>
+          <span className="text-main-color font-extrabold mt-12">
+            I LIKE 짬뽕
+          </span>
         </>
       );
     }
@@ -34,7 +42,9 @@ const Title: React.FC = () => {
   return (
     <>
       <div>
-        <h1 className="text-4xl font-bold text-[#a9a9a9]">{title}</h1>
+        <h1 className="text-4xl font-bold text-[#a9a9a9] text-center mt-20">
+          {title}
+        </h1>
       </div>
     </>
   );
