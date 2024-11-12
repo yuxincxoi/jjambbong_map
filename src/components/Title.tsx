@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import TitleProps from "../interfaces/components/Title.interface";
+// import TitleProps from "../interfaces/components/Title.interface";
 
-const Title: React.FC<TitleProps> = ({ page }) => {
+const Title: React.FC = () => {
   useEffect(() => {
     const title = document.getElementById("title");
     if (page === "wka" && title) {
