@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const MainPage: React.FC = () => {
   return (
     <>
-      <h1>Main</h1>
       <Title />
       <Map />
       <PlaceListTable />
