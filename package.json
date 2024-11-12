@@ -1,26 +1,23 @@
 {
-  "devDependencies": {
-    "@babel/preset-react": "^7.25.7",
-    "@babel/preset-typescript": "^7.25.7",
-    "@types/node": "^22.7.8",
-    "@types/react": "^18.3.11",
-    "@types/react-dom": "^18.3.1",
-    "autoprefixer": "^10.4.20",
-    "css-loader": "^7.1.2",
-    "kakao.maps.d.ts": "^0.1.40",
-    "postcss": "^8.4.47",
-    "postcss-loader": "^8.1.1",
-    "style-loader": "^4.0.0",
-    "tailwindcss": "^3.4.14",
-    "ts-loader": "^9.5.1",
-    "typescript": "^5.6.3",
-    "webpack": "^5.95.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.1.0"
-  },
   "name": "jjambbong_map",
   "version": "1.0.0",
+  "description": "",
   "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev": "webpack serve --mode development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuxincxoi/jjambbong_map.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuxincxoi/jjambbong_map/issues"
+  },
+  "homepage": "https://github.com/yuxincxoi/jjambbong_map#readme",
   "dependencies": {
     "@babel/core": "^7.25.8",
     "@babel/preset-env": "^7.25.8",
@@ -113,20 +110,23 @@
     "which": "^2.0.2",
     "wildcard": "^2.0.1"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "dev": "webpack serve --mode development --open"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yuxincxoi/jjambbong_map.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/yuxincxoi/jjambbong_map/issues"
-  },
-  "homepage": "https://github.com/yuxincxoi/jjambbong_map#readme",
-  "description": ""
+  "devDependencies": {
+    "@babel/preset-react": "^7.25.7",
+    "@babel/preset-typescript": "^7.25.7",
+    "@types/node": "^22.7.8",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "autoprefixer": "^10.4.20",
+    "css-loader": "^7.1.2",
+    "kakao.maps.d.ts": "^0.1.40",
+    "postcss": "^8.4.47",
+    "postcss-loader": "^8.1.1",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^3.4.14",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.6.3",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
+  }
 }
