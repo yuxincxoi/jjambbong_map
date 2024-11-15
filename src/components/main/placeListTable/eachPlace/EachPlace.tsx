@@ -4,7 +4,6 @@ const EachPlace: React.FC<EachPlaceProps> = ({ place }) => {
   const heartFull = "url('./img/fullHeart.png')";
   const heartEmpty = "url('./img/emptyHeart.png')";
 
-  let [isHeartOn, setIsHeartOn] = useState(false);
   const heart = document.getElementById("heart");
 
   heart?.addEventListener("click", () => {
