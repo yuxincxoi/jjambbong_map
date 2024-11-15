@@ -7,7 +7,6 @@ import Button from "../components/Button";
 function IndexPage() {
   return (
     <div className="mt-[200px]">
-      <h1>Home Page</h1>
       <Title />
       <Input placeholder="ID" className="mt-4" />
       <Input placeholder="password" />
