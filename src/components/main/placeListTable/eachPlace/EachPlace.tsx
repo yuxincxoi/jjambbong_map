@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import EachPlaceProps from "../../../../interfaces/components/main/placeListTable/eachPlace/EachPlace.interface";
 
 const EachPlace: React.FC<EachPlaceProps> = ({ place }) => {
@@ -5,25 +6,9 @@ const EachPlace: React.FC<EachPlaceProps> = ({ place }) => {
   const heartEmpty = "url('./img/emptyHeart.png')";
   const [isHeartOn, setIsHeartOn] = useState(false);
 
-  const heart = document.getElementById("heart");
-
-  heart?.addEventListener("click", () => {
-    if (isHeartOn) {
-      setIsHeartOn(false);
-      console.log(isHeartOn);
-    } else {
-      setIsHeartOn(true);
-      console.log(isHeartOn);
-    }
-  });
-
-  useEffect(() => {
-    if (heart && isHeartOn) {
-      heart.style.backgroundImage = heartFull;
-    } else if (heart && !isHeartOn) {
-      heart.style.backgroundImage = heartEmpty;
-    }
-  }, [isHeartOn]);
+  const handleHeartClick = () => {
+    setIsHeartOn((prev) => !prev);
+  };
 
   return (
     <>
@@ -32,7 +17,13 @@ const EachPlace: React.FC<EachPlaceProps> = ({ place }) => {
           <div className="text-xl font-semibold">{place.placeName}</div>
           <div>{place.address}</div>
         </div>
-        <div className="w-14 h-14 mt-1 bg-main-color"></div>
+        <div
+          onClick={handleHeartClick}
+          style={{
+            backgroundImage: isHeartOn ? heartFull : heartEmpty,
+          }}
+          className="w-7 h-7 mt-5 mr-4 bg-cover bg-no-repeat cursor-pointer"
+        ></div>
       </div>
     </>
   );
