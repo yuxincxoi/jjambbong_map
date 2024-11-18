@@ -7,6 +7,7 @@ export default function SignupPage() {
     <div>
       <h1>Signup Page</h1>
       <Title />
+      <p>Create your Account</p>
       <Link to="/">
         <button className="px-2 py-1 bg-main-color text-white rounded mr-2 hover:border-main-color hover:text-main-color hover:bg-white">
           Go to Home Page
