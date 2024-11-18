@@ -1,7 +1,4 @@
-interface InputProps {
-  placeholder: string;
-  className?: string; // optional className prop
-}
+import InputProps from "../interfaces/components/Input.interface";
 
 const Input: React.FC<InputProps> = ({ placeholder, className }) => {
   return (
