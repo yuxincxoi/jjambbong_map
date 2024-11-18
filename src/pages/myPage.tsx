@@ -19,13 +19,13 @@ export default function MyPage() {
       <div className="flex justify-start">
         <Link to="/mainPage">
           <Button
-            buttonName="Go to Main Page"
+            buttonName="Main Page"
             className="px-2 py-1 bg-main-color text-white rounded mr-2 hover:border-main-color hover:text-main-color hover:bg-white"
           />
         </Link>
         <Link to="/">
           <Button
-            buttonName="Go to Home Page"
+            buttonName="Logout"
             className="px-2 py-1 bg-main-color text-white rounded hover:border-main-color hover:text-main-color hover:bg-white"
           />
         </Link>

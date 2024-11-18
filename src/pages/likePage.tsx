@@ -12,17 +12,17 @@ export default function LikePage() {
       <PlaceListTable />
       <Link to="/">
         <button className="px-2 py-1 bg-main-color text-white rounded mr-2 hover:border-main-color hover:text-main-color hover:bg-white">
-          Go to Home Page
+          Logout
         </button>
       </Link>
       <Link to="/myPage">
         <button className="px-2 py-1 bg-main-color text-white rounded mr-2 hover:border-main-color hover:text-main-color hover:bg-white">
-          Go to My Page
+          My Page
         </button>
       </Link>
       <Link to="/mainPage">
         <button className="px-2 py-1 bg-main-color text-white rounded mr-2 hover:border-main-color hover:text-main-color hover:bg-white">
-          Go to Main Page
+          Main Page
         </button>
       </Link>
     </div>
