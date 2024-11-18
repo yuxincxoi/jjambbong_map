@@ -8,8 +8,10 @@ export default function SignupPage() {
     <div>
       <h1>Signup Page</h1>
       <Title />
-      <p>Create your Account</p>
-      <Input placeholder="name" />
+      <p className="flex justify-center mt-3 text-[#909090] font-thin">
+        Create your Account
+      </p>
+      <Input placeholder="name" className="mt-3" />
       <Input placeholder="ID" />
       <Input placeholder="password" />
       <Input placeholder="confirm password" />
