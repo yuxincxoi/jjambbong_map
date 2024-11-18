@@ -6,9 +6,9 @@ import Button from "../components/Button";
 
 export default function MyPage() {
   return (
-    <div>
+    <div className="mt-[170px]">
       <Title />
-      <Input placeholder="name" />
+      <Input placeholder="name" className="mt-4" />
       <Input placeholder="ID" />
       <Input placeholder="password" />
       <Input placeholder="confirm password" />
