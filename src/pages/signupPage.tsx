@@ -6,7 +6,7 @@ import Button from "../components/Button";
 
 export default function SignupPage() {
   return (
-    <div>
+    <div className="mt-[170px]">
       <Title />
       <p className="flex justify-center mt-3 text-[#909090] font-thin">
         Create your Account
