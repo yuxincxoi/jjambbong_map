@@ -1,7 +1,4 @@
-interface ButtonProps {
-  buttonName: string;
-  className?: string;
-}
+import ButtonProps from "../interfaces/components/Button.interface";
 
 const Button: React.FC<ButtonProps> = ({ buttonName, className }) => {
   return (
