@@ -1,9 +1,13 @@
 // server/server.ts
 import express from "express";
 import path from "path";
+import connectDB from "../db/connection";
 
 const app = express();
 const PORT = process.env.PORT || 4000;
+
+// MongoDB 연결
+connectDB();
 
 // JSON 파싱 미들웨어
 app.use(express.json());
