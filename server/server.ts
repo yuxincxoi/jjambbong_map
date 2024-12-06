@@ -2,6 +2,8 @@
 import express from "express";
 import path from "path";
 import connectDB from "../db/connection";
+import authRoutes from "./routes/authRoutes";
+import userRoutes from "./routes/userRoutes";
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -11,6 +13,10 @@ connectDB();
 
 // JSON 파싱 미들웨어
 app.use(express.json());
+
+// 라우트 추가
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 
 // 클라이언트 빌드 파일을 서빙 (React 빌드 결과물)
 app.use(express.static(path.join(__dirname, "../dist")));
