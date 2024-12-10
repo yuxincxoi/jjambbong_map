@@ -69,10 +69,14 @@ export const registerUser = async (req: Request, res: Response) => {
       throw new Error("이미 존재하는 이메일입니다.");
     }
 
+    // 비밀번호 해시
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
     // 사용자 생성
     const user = await User.create({
       id,
-      password,
+      password: hashedPassword,
       name,
     });
 
