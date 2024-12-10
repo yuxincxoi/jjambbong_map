@@ -59,18 +59,18 @@ export const logoutUser = (req: Request, res: Response) => {
 };
 
 // 회원가입
-export const registerUser = async (userData: any) => {
-  const { email, password, name } = userData;
+export const registerUser = async (req: Request, res: Response) => {
+  const { name, id, password } = req.body;
 
-  // 중복 이메일 확인
-  const existingUser = await User.findOne({ email });
+  // 중복 id 확인
+  const existingUser = await User.findOne({ id });
   if (existingUser) {
     throw new Error("이미 존재하는 이메일입니다.");
   }
 
   // 사용자 생성
   const newUser = new User({
-    email,
+    id,
     password,
     name,
   });
