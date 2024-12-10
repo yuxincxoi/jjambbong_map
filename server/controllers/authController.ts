@@ -1,4 +1,6 @@
 import User from "../../db/models/User.model";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcryptjs";
 
 // 로그인
 export const loginUser = async (email: string, password: string) => {
