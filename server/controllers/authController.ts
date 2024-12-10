@@ -10,42 +10,46 @@ const generateToken = (id: string) => {
 
 // 로그인
 export const loginUser = async (req: Request, res: Response) => {
-  const { id, password } = req.body;
+  try {
+    const { id, password } = req.body;
 
-  // 사용자 조회
-  const user = await User.findOne({ id });
-  if (!user) {
-    return res
-      .status(401)
-      .json({ message: "아이디 또는 비밀번호가 잘못되었습니다." });
+    // 사용자 조회
+    const user = await User.findOne({ id });
+    if (!user) {
+      return res
+        .status(401)
+        .json({ message: "아이디 또는 비밀번호가 잘못되었습니다." });
+    }
+
+    // 비밀번호 검증
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res
+        .status(401)
+        .json({ message: "아이디 또는 비밀번호가 잘못되었습니다." });
+    }
+
+    // 토큰 생성
+    const token = generateToken(user._id.toString());
+
+    // 쿠키에 토큰 설정
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production" || false,
+      maxAge: 3600000,
+      sameSite: "strict",
+    });
+
+    res.status(200).json({
+      message: "로그인 성공",
+      user: {
+        id: user.id,
+        name: user.name,
+      },
+    });
+  } catch (error) {
+    res.status(500).json({ message: "로그인 중 오류 발생", error });
   }
-
-  // 비밀번호 검증
-  const isMatch = await bcrypt.compare(password, user.password);
-  if (!isMatch) {
-    return res
-      .status(401)
-      .json({ message: "아이디 또는 비밀번호가 잘못되었습니다." });
-  }
-
-  // 토큰 생성
-  const token = generateToken(user._id.toString());
-
-  // 쿠키에 토큰 설정
-  res.cookie("token", token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production" || false,
-    maxAge: 3600000,
-    sameSite: "strict",
-  });
-
-  res.status(200).json({
-    message: "로그인 성공",
-    user: {
-      id: user.id,
-      name: user.name,
-    },
-  });
 };
 
 // 회원가입
