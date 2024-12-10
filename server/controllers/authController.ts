@@ -1,12 +1,18 @@
+import { Request, Response } from "express";
 import User from "../../db/models/User.model";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 
 // 로그인
-export const loginUser = async (email: string, password: string) => {
-  const user = await User.findOne({ email });
+export const loginUser = async (req: Request, res: Response) => {
+  const { id, password } = req.body;
+
+  // 사용자 조회
+  const user = await User.findOne({ id });
   if (!user) {
-    throw new Error("사용자를 찾을 수 없습니다.");
+    return res
+      .status(401)
+      .json({ message: "아이디 또는 비밀번호가 잘못되었습니다." });
   }
 };
 
