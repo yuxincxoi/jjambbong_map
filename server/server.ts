@@ -1,6 +1,7 @@
 // server/server.ts
 import express from "express";
 import path from "path";
+import cookieParser from "cookie-parser";
 import connectDB from "../db/connection";
 import authRoutes from "./routes/authRoutes";
 import userRoutes from "./routes/userRoutes";
@@ -13,6 +14,7 @@ connectDB();
 
 // JSON 파싱 미들웨어
 app.use(express.json());
+app.use(cookieParser());
 
 // 라우트 추가
 app.use("/api/auth", authRoutes);
