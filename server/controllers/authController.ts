@@ -69,11 +69,14 @@ export const registerUser = async (req: Request, res: Response) => {
   }
 
   // 사용자 생성
-  const newUser = new User({
+  const user = await User.create({
     id,
     password,
     name,
   });
 
-  return await newUser.save();
+  res.status(201).json({
+    message: "회원가입 성공",
+    user: { id: user.id, name: user.name },
+  });
 };
