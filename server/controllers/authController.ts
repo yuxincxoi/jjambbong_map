@@ -52,6 +52,12 @@ export const loginUser = async (req: Request, res: Response) => {
   }
 };
 
+// 로그아웃
+export const logoutUser = (req: Request, res: Response) => {
+  res.clearCookie("token");
+  res.status(200).json({ message: "로그아웃 성공" });
+};
+
 // 회원가입
 export const registerUser = async (userData: any) => {
   const { email, password, name } = userData;
