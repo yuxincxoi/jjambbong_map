@@ -60,7 +60,7 @@ export default function MyPage() {
       />
       <Input
         placeholder="ID"
-        name="ID"
+        name="id"
         value={formData.id}
         onChange={handleChange}
       />
@@ -72,7 +72,7 @@ export default function MyPage() {
       />
       <Input
         placeholder="confirm password"
-        name="confirm password"
+        name="confirmPassword"
         value={formData.confirmPassword}
         onChange={handleChange}
       />
