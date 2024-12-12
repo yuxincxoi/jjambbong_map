@@ -10,6 +10,12 @@ function IndexPage() {
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+
+    try {
+      alert("로그인 성공");
+    } catch (error) {
+      alert("로그인 중 예기치 않은 오류가 발생했습니다.");
+    }
   };
 
   return (
