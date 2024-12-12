@@ -17,17 +17,13 @@ export const loginUser = async (req: Request, res: Response) => {
     const user = await User.findOne({ id: id });
 
     if (!user) {
-      return res
-        .status(401)
-        .json({ message: "아이디 또는 비밀번호가 잘못되었습니다." });
+      return res.status(401).json({ message: "아이디가 잘못되었습니다." });
     }
 
     // 비밀번호 검증
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res
-        .status(401)
-        .json({ message: "아이디 또는 비밀번호가 잘못되었습니다." });
+      return res.status(401).json({ message: "비밀번호가 잘못되었습니다." });
     }
 
     // 토큰 생성
