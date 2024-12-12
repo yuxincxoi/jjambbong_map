@@ -14,7 +14,8 @@ export const loginUser = async (req: Request, res: Response) => {
     const { id, password } = req.body;
 
     // 사용자 조회
-    const user = await User.findOne({ id });
+    const user = await User.findOne({ id: id });
+
     if (!user) {
       return res
         .status(401)
