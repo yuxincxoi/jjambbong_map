@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Title from "../components/Title";
 import Input from "../components/Input";
 import Button from "../components/Button";
 
 function IndexPage() {
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <div className="mt-[200px]">
       <Title />
