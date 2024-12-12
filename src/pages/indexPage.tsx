@@ -12,6 +12,17 @@ function IndexPage() {
     e.preventDefault();
 
     try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({ id, password }),
+      });
+
+      const data = await response.json();
+
       alert("로그인 성공");
     } catch (error) {
       alert("로그인 중 예기치 않은 오류가 발생했습니다.");
