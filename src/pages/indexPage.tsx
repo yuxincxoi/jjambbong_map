@@ -22,8 +22,19 @@ function IndexPage() {
     <div className="mt-[200px]">
       <Title />
       <form>
-        <Input placeholder="ID" className="mt-4" />
-        <Input placeholder="password" />
+        <Input
+          placeholder="ID"
+          name="id"
+          value={id}
+          onChange={(e) => setId(e.target.value)}
+          className="mt-4"
+        />
+        <Input
+          placeholder="password"
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <Link to="/mainPage">
           <Button
             buttonName="Sign in"
