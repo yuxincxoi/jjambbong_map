@@ -8,6 +8,10 @@ function IndexPage() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
 
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="mt-[200px]">
       <Title />
@@ -17,6 +21,7 @@ function IndexPage() {
         <Link to="/mainPage">
           <Button
             buttonName="Sign in"
+            onClick={(e) => handleSubmit(e)}
             className="w-60 h-9 mt-4 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
           />
         </Link>
