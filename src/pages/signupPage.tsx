@@ -9,6 +9,10 @@ export default function SignupPage() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
 
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="mt-[170px]">
       <Title />
@@ -42,6 +46,7 @@ export default function SignupPage() {
         <Link to="/">
           <Button
             buttonName="Sign up"
+            onClick={(e) => handleSubmit(e)}
             className="w-60 h-9 mt-4 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
           />
         </Link>
