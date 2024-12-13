@@ -11,6 +11,23 @@ export default function SignupPage() {
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+
+    try {
+      const response = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({ name, id, password }),
+      });
+
+      const data = await response.json();
+
+      alert("회원가입 성공");
+    } catch (error) {
+      alert("회원가입 중 예기치 않은 오류가 발생했습니다.");
+    }
   };
 
   return (
