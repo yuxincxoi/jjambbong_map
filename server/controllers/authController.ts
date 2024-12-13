@@ -15,7 +15,6 @@ export const loginUser = async (req: Request, res: Response) => {
 
     // 사용자 조회
     const user = await User.findOne({ id: id });
-
     if (!user) {
       return res.status(401).json({ message: "아이디가 잘못되었습니다." });
     }
@@ -61,7 +60,7 @@ export const registerUser = async (req: Request, res: Response) => {
     const { name, id, password } = req.body;
 
     // 중복 id 확인
-    const existingUser = await User.findOne({ id });
+    const existingUser = await User.findOne({ id: id });
     if (existingUser) {
       throw new Error("이미 존재하는 이메일입니다.");
     }
