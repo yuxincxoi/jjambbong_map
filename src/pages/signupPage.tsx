@@ -1,19 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Title from "../components/Title";
 import Input from "../components/Input";
 import Button from "../components/Button";
 
 export default function SignupPage() {
+  const [name, setName] = useState("");
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <div className="mt-[170px]">
       <Title />
       <p className="flex justify-center mt-3 text-[#909090] font-thin">
         Create your Account
       </p>
-      <Input placeholder="name" className="mt-3" />
-      <Input placeholder="ID" />
-      <Input placeholder="password" />
+      <Input
+        placeholder="name"
+        name="name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        className="mt-3"
+      />
+      <Input
+        placeholder="ID"
+        name="id"
+        value={id}
+        onChange={(e) => setId(e.target.value)}
+      />
+      <Input
+        placeholder="password"
+        name="id"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
       <Input placeholder="confirm password" />
       <Link to="/">
         <Button
