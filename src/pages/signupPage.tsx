@@ -17,6 +17,7 @@ export default function SignupPage() {
       </p>
       <form>
         <Input
+          type="text"
           placeholder="name"
           name="name"
           value={name}
@@ -24,18 +25,20 @@ export default function SignupPage() {
           className="mt-3"
         />
         <Input
+          type="text"
           placeholder="ID"
           name="id"
           value={id}
           onChange={(e) => setId(e.target.value)}
         />
         <Input
+          type="password"
           placeholder="password"
           name="id"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Input placeholder="confirm password" />
+        <Input type="password" placeholder="confirm password" />
         <Link to="/">
           <Button
             buttonName="Sign up"

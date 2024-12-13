@@ -34,6 +34,7 @@ function IndexPage() {
       <Title />
       <form>
         <Input
+          type="text"
           placeholder="ID"
           name="id"
           value={id}
@@ -41,6 +42,7 @@ function IndexPage() {
           className="mt-4"
         />
         <Input
+          type="password"
           placeholder="password"
           name="password"
           value={password}

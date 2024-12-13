@@ -1,4 +1,5 @@
 export default interface InputProps {
+  type: string;
   placeholder: string;
   className?: string;
   name?: string;

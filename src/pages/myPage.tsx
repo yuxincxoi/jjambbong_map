@@ -52,6 +52,7 @@ export default function MyPage() {
     <div className="mt-[170px]">
       <Title />
       <Input
+        type="text"
         placeholder="name"
         name="name"
         value={formData.name}
@@ -59,18 +60,21 @@ export default function MyPage() {
         className="mt-4"
       />
       <Input
+        type="text"
         placeholder="ID"
         name="id"
         value={formData.id}
         onChange={handleChange}
       />
       <Input
+        type="password"
         placeholder="password"
         name="password"
         value={formData.password}
         onChange={handleChange}
       />
       <Input
+        type="password"
         placeholder="confirm password"
         name="confirmPassword"
         value={formData.confirmPassword}

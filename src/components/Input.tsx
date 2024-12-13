@@ -1,6 +1,7 @@
 import InputProps from "../interfaces/components/Input.interface";
 
 const Input: React.FC<InputProps> = ({
+  type,
   placeholder,
   className,
   name,
@@ -11,7 +12,7 @@ const Input: React.FC<InputProps> = ({
     <>
       <div className="flex justify-center mt-2">
         <input
-          type="text"
+          type={type}
           placeholder={placeholder}
           name={name}
           value={value}
