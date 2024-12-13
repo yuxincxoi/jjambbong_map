@@ -15,32 +15,34 @@ export default function SignupPage() {
       <p className="flex justify-center mt-3 text-[#909090] font-thin">
         Create your Account
       </p>
-      <Input
-        placeholder="name"
-        name="name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        className="mt-3"
-      />
-      <Input
-        placeholder="ID"
-        name="id"
-        value={id}
-        onChange={(e) => setId(e.target.value)}
-      />
-      <Input
-        placeholder="password"
-        name="id"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <Input placeholder="confirm password" />
-      <Link to="/">
-        <Button
-          buttonName="Sign up"
-          className="w-60 h-9 mt-4 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
+      <form>
+        <Input
+          placeholder="name"
+          name="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="mt-3"
         />
-      </Link>
+        <Input
+          placeholder="ID"
+          name="id"
+          value={id}
+          onChange={(e) => setId(e.target.value)}
+        />
+        <Input
+          placeholder="password"
+          name="id"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Input placeholder="confirm password" />
+        <Link to="/">
+          <Button
+            buttonName="Sign up"
+            className="w-60 h-9 mt-4 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
+          />
+        </Link>
+      </form>
     </div>
   );
 }
