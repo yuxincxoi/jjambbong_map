@@ -11,9 +11,7 @@ export default function MyPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleSubmit = async () => {
-    const { id, ...updateData } = formData;
-
-    if (updateData.password !== updateData.confirmPassword) {
+    if (password !== confirmPassword) {
       alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
       return;
     }
