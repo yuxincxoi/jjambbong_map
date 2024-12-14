@@ -19,6 +19,12 @@ export default function MyPage() {
     }
 
     try {
+      const updateData = {
+        name,
+        id,
+        password,
+      };
+
       const response = await fetch(`/api/users/${id}`, {
         method: "PUT",
         headers: {
