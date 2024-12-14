@@ -14,6 +14,11 @@ export default function SignupPage() {
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
+    if (password !== confirmPassword) {
+      alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+      return;
+    }
+
     try {
       const response = await fetch("/api/auth/register", {
         method: "POST",
