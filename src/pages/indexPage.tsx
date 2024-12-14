@@ -22,6 +22,12 @@ function IndexPage() {
         body: JSON.stringify({ id, password }),
       });
 
+      // 응답 상태 확인
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "로그인 실패");
+      }
+
       const data = await response.json();
 
       // 로그인 성공 시 메인 페이지로 이동
