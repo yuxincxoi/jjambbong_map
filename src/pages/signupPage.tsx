@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Title from "../components/Title";
 import Input from "../components/Input";
 import Button from "../components/Button";
@@ -8,6 +8,7 @@ export default function SignupPage() {
   const [name, setName] = useState("");
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -22,9 +23,16 @@ export default function SignupPage() {
         body: JSON.stringify({ name, id, password }),
       });
 
+      // 응답 상태 확인
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "회원가입 실패");
+      }
+
       const data = await response.json();
 
-      alert("회원가입 성공");
+      // 로그인 성공 시 인덱스 페이지로 이동
+      navigate("/");
     } catch (error) {
       alert("회원가입 중 예기치 않은 오류가 발생했습니다.");
     }
