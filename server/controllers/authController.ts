@@ -62,7 +62,7 @@ export const registerUser = async (req: Request, res: Response) => {
     // 중복 id 확인
     const existingUser = await User.findOne({ id: id });
     if (existingUser) {
-      throw new Error("이미 존재하는 이메일입니다.");
+      return res.status(401).json({ message: "이미 존재하는 아이디입니다." });
     }
 
     // 비밀번호 해시
@@ -76,7 +76,7 @@ export const registerUser = async (req: Request, res: Response) => {
       name,
     });
 
-    res.status(201).json({
+    return res.status(201).json({
       message: "회원가입 성공",
       user: { id: user.id, name: user.name },
     });
