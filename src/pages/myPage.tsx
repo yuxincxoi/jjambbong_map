@@ -5,12 +5,10 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 
 export default function MyPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    id: "",
-    password: "",
-    confirmPassword: "",
-  });
+  const [name, setName] = useState("");
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -55,30 +53,30 @@ export default function MyPage() {
         type="text"
         placeholder="name"
         name="name"
-        value={formData.name}
-        onChange={handleChange}
+        value={name}
+        onChange={(e) => setName(e.target.value)}
         className="mt-4"
       />
       <Input
         type="text"
         placeholder="ID"
         name="id"
-        value={formData.id}
-        onChange={handleChange}
+        value={id}
+        onChange={(e) => setId(e.target.value)}
       />
       <Input
         type="password"
         placeholder="password"
         name="password"
-        value={formData.password}
-        onChange={handleChange}
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
       />
       <Input
         type="password"
         placeholder="confirm password"
         name="confirmPassword"
-        value={formData.confirmPassword}
-        onChange={handleChange}
+        value={confirmPassword}
+        onChange={(e) => setConfirmPassword(e.target.value)}
       />
       <Button
         buttonName="Save"
