@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Title from "../components/Title";
 import Input from "../components/Input";
 import Button from "../components/Button";
@@ -9,6 +9,7 @@ export default function MyPage() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -39,7 +40,9 @@ export default function MyPage() {
       }
 
       const updatedUser = await response.json();
-      alert("회원정보가 성공적으로 수정되었습니다.");
+
+      // 회원정보 수정 성공 시 메인 페이지로 이동
+      navigate("/mainPage");
     } catch (error) {
       alert(`회원정보 수정 중 에러가 발생했습니다: ${error}`);
     }
@@ -83,12 +86,10 @@ export default function MyPage() {
         className="w-60 h-9 mt-4 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
       />
       <div className="flex justify-start">
-        <Link to="/mainPage">
-          <Button
-            buttonName="Main Page"
-            className="px-2 py-1 bg-main-color text-white rounded mr-2 hover:border-main-color hover:text-main-color hover:bg-white"
-          />
-        </Link>
+        <Button
+          buttonName="Main Page"
+          className="px-2 py-1 bg-main-color text-white rounded mr-2 hover:border-main-color hover:text-main-color hover:bg-white"
+        />
         <Link to="/">
           <Button
             buttonName="Logout"
