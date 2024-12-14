@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Title from "../components/Title";
 import Input from "../components/Input";
 import Button from "../components/Button";
@@ -68,13 +68,11 @@ export default function SignupPage() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <Input type="password" placeholder="confirm password" />
-        <Link to="/">
-          <Button
-            buttonName="Sign up"
-            onClick={(e) => handleSubmit(e)}
-            className="w-60 h-9 mt-4 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
-          />
-        </Link>
+        <Button
+          buttonName="Sign up"
+          onClick={(e) => handleSubmit(e)}
+          className="w-60 h-9 mt-4 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
+        />
       </form>
     </div>
   );
