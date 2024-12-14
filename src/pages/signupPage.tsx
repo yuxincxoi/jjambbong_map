@@ -8,6 +8,7 @@ export default function SignupPage() {
   const [name, setName] = useState("");
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -67,7 +68,13 @@ export default function SignupPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Input type="password" placeholder="confirm password" />
+        <Input
+          type="password"
+          placeholder="confirm password"
+          name="confirmPassword"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
         <Button
           buttonName="Sign up"
           onClick={(e) => handleSubmit(e)}
