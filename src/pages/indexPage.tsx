@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Title from "../components/Title";
 import Input from "../components/Input";
 import Button from "../components/Button";
@@ -7,6 +7,7 @@ import Button from "../components/Button";
 function IndexPage() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -23,7 +24,8 @@ function IndexPage() {
 
       const data = await response.json();
 
-      alert("로그인 성공");
+      // 로그인 성공 시 메인 페이지로 이동
+      navigate("/mainPage");
     } catch (error) {
       alert("로그인 중 예기치 않은 오류가 발생했습니다.");
     }
@@ -48,13 +50,11 @@ function IndexPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Link to="/mainPage">
-          <Button
-            buttonName="Sign in"
-            onClick={(e) => handleSubmit(e)}
-            className="w-60 h-9 mt-4 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
-          />
-        </Link>
+        <Button
+          buttonName="Sign in"
+          onClick={(e) => handleSubmit(e)}
+          className="w-60 h-9 mt-4 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
+        />
       </form>
       <div className="flex mt-8 justify-center text-sm">
         <p className="text-[#909090] font-thin">Don't have an account ?</p>
