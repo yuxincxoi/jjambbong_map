@@ -34,9 +34,7 @@ export default function MyPage() {
 
       const updatedUser = await response.json();
       alert("회원정보가 성공적으로 수정되었습니다.");
-      console.log("수정된 사용자:", updatedUser);
     } catch (error) {
-      console.error("에러 발생:", error);
       alert(`회원정보 수정 중 에러가 발생했습니다: ${error}`);
     }
   };
