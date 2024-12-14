@@ -13,14 +13,21 @@ export const loginUser = async (req: Request, res: Response) => {
   try {
     const { id, password } = req.body;
 
+    console.log("로그인 시도 ID:", id);
+    console.log("로그인 시도 비밀번호:", password);
+
     // 사용자 조회
     const user = await User.findOne({ id: id });
+    console.log("조회된 사용자:", user);
+
     if (!user) {
       return res.status(401).json({ message: "아이디가 잘못되었습니다." });
     }
 
     // 비밀번호 검증
     const isMatch = await bcrypt.compare(password, user.password);
+    console.log("비밀번호 일치 여부:", isMatch);
+
     if (!isMatch) {
       return res.status(401).json({ message: "비밀번호가 잘못되었습니다." });
     }
@@ -36,7 +43,7 @@ export const loginUser = async (req: Request, res: Response) => {
       sameSite: "strict",
     });
 
-    res.status(200).json({
+    return res.status(200).json({
       message: "로그인 성공",
       user: {
         id: user.id,
@@ -44,7 +51,7 @@ export const loginUser = async (req: Request, res: Response) => {
       },
     });
   } catch (error) {
-    res.status(500).json({ message: "로그인 중 오류 발생", error });
+    return res.status(500).json({ message: "로그인 중 오류 발생", error });
   }
 };
 
