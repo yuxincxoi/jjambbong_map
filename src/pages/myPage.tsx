@@ -86,10 +86,12 @@ export default function MyPage() {
         className="w-60 h-9 mt-4 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
       />
       <div className="flex justify-start">
-        <Button
-          buttonName="Main Page"
-          className="px-2 py-1 bg-main-color text-white rounded mr-2 hover:border-main-color hover:text-main-color hover:bg-white"
-        />
+        <Link to="/mainPage">
+          <Button
+            buttonName="이전으로"
+            className="px-2 py-1 bg-main-color text-white rounded mr-2 hover:border-main-color hover:text-main-color hover:bg-white"
+          />
+        </Link>
         <Link to="/">
           <Button
             buttonName="Logout"
