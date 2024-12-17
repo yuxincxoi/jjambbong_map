@@ -9,6 +9,7 @@ const PlaceListTable = () => {
 
   const handleSearch = async (searchValue: string) => {
     try {
+      setPlaces([]);
       const result = await searchPlace(searchValue);
       setPlaces(result);
     } catch (error) {
