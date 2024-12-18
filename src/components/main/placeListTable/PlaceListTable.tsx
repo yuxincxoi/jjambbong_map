@@ -20,6 +20,8 @@ const PlaceListTable = () => {
     }
   };
 
+  const handleLikeToggle = async (place: ILikePlace, isLike: boolean) => {};
+
   return (
     <>
       <InputSearch onSearch={handleSearch} />
@@ -27,7 +29,11 @@ const PlaceListTable = () => {
         <div className="bg-[#F8F8F8] w-[40%]">
           {places.length > 0 ? (
             places.map((place) => (
-              <EachPlace key={place.placeName} place={place} />
+              <EachPlace
+                key={place.placeName}
+                place={place}
+                onLikeToggle={handleLikeToggle}
+              />
             ))
           ) : (
             <p>검색된 장소가 없습니다.</p>
