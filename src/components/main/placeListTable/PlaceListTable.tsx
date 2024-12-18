@@ -27,7 +27,7 @@ const PlaceListTable = () => {
       updatedLikedPlaces = [...likedPlaces, place];
     } else {
       updatedLikedPlaces = likedPlaces.filter(
-        (p) => p.placeName !== place.placeName || p.address! == place.address
+        (p) => p.placeName !== place.placeName || p.address !== place.address
       );
     }
 
