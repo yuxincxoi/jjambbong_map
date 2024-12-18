@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import EachPlaceProps from "../../../../interfaces/components/main/placeListTable/eachPlace/EachPlace.interface";
 
-const EachPlace: React.FC<EachPlaceProps> = ({ place }) => {
+const EachPlace: React.FC<EachPlaceProps> = ({ place, onLikeToggle }) => {
   const heartFull = "url('./img/fullHeart.png')";
   const heartEmpty = "url('./img/emptyHeart.png')";
   const [isHeartOn, setIsHeartOn] = useState(false);
 
   const handleHeartClick = () => {
     setIsHeartOn((prev) => !prev);
+    onLikeToggle(place, !isHeartOn);
   };
 
   return (
