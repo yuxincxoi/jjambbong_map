@@ -1,11 +1,13 @@
 import { useState } from "react";
 import EachPlace from "./eachPlace/EachPlace";
 import Place from "../../../interfaces/components/main/placeListTable/Place.interface";
+import { ILikePlace } from "../../../../db/interfaces/LikePlace.interface";
 import InputSearch from "../InputSearch";
 import { searchPlace } from "../../../modules/map/searchPlace";
 
 const PlaceListTable = () => {
   const [places, setPlaces] = useState<Place[]>([]);
+  const [likedPlaces, setLikedPlaces] = useState<ILikePlace[]>([]);
 
   const handleSearch = async (searchValue: string) => {
     try {
