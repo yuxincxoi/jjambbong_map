@@ -20,7 +20,19 @@ const PlaceListTable = () => {
     }
   };
 
-  const handleLikeToggle = async (place: ILikePlace, isLike: boolean) => {};
+  const handleLikeToggle = async (place: ILikePlace, isLike: boolean) => {
+    let updatedLikedPlaces;
+
+    if (isLike) {
+      updatedLikedPlaces = [...likedPlaces, place];
+    } else {
+      updatedLikedPlaces = likedPlaces.filter(
+        (p) => p.placeName !== place.placeName || p.address! == place.address
+      );
+    }
+
+    setLikedPlaces(updatedLikedPlaces);
+  };
 
   return (
     <>
