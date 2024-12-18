@@ -1,4 +1,4 @@
 export interface ILikePlace {
-  place: string;
+  placeName: string;
   address: string;
 }
