@@ -32,6 +32,18 @@ const PlaceListTable = () => {
     }
 
     setLikedPlaces(updatedLikedPlaces);
+
+    try {
+      await fetch("/api/users/likeplace", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ likedPlaces: updatedLikedPlaces }),
+      });
+    } catch (error) {
+      console.error("Error updating likePlace:", error);
+    }
   };
 
   return (
