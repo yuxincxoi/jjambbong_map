@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema<IUser>({
   password: { type: String, required: true },
   likePlace: [
     {
-      place: { type: String, required: true },
+      placeName: { type: String, required: true },
       address: { type: String },
     },
   ],
