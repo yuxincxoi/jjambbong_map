@@ -39,6 +39,7 @@ export const updateUser = async (req: Request, res: Response) => {
   }
 };
 
+// 좋아요 관리
 export const likePlace = async (req: Request, res: Response) => {
   const userId = req.params.id;
   const { likedPlaces } = req.body;
