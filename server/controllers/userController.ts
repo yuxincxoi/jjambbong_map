@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import User from "../../db/models/User.model";
 import { IUser } from "../../db/interfaces/User.interface";
+import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 
 // 회원정보 수정
@@ -41,10 +42,21 @@ export const updateUser = async (req: Request, res: Response) => {
 
 // 좋아요 관리
 export const likePlace = async (req: Request, res: Response) => {
-  const userId = req.params.id;
-  const { likedPlaces } = req.body;
+  // 쿠키에서 토큰 가져오기
+  const token = req.cookies.token;
+  if (!token) {
+    return res.status(401).json({ message: "인증 토큰이 없습니다." });
+  }
 
   try {
+    // 토큰 해독하여 userId 추출
+    const decoded = jwt.verify(
+      token,
+      process.env.JWT_SECRET || "defaultSecret"
+    ) as { id: string };
+    const userId = decoded.id;
+    const { likedPlaces } = req.body;
+
     await User.updateOne({ id: userId }, { $set: { likePlace: likedPlaces } });
     res.status(200).json({ message: "likePlace가 업데이트되었습니다." });
   } catch (error) {
