@@ -26,7 +26,7 @@ export const loginUser = async (req: Request, res: Response) => {
     }
 
     // 토큰 생성
-    const token = generateToken(user._id.toString());
+    const token = generateToken(user.id.toString());
 
     // 쿠키에 토큰 설정
     res.cookie("token", token, {
