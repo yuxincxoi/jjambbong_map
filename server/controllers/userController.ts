@@ -7,7 +7,18 @@ import bcrypt from "bcryptjs";
 // 회원정보 수정
 export const updateUser = async (req: Request, res: Response) => {
   try {
-    const userId = req.params.id;
+    // 쿠키에서 토큰 가져오기
+    const token = req.cookies.token;
+    if (!token) {
+      return res.status(401).json({ message: "인증 토큰이 없습니다." });
+    }
+
+    // 토큰 해독하여 userId 추출
+    const decoded = jwt.verify(
+      token,
+      process.env.JWT_SECRET || "defaultSecret"
+    ) as { id: string };
+    const userId = decoded.id;
     const { name, password } = req.body;
 
     const user = await User.findOne({ id: userId });
