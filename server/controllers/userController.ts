@@ -1,24 +1,14 @@
-import { Request, Response } from "express";
+import { Response } from "express";
 import User from "../../db/models/User.model";
 import { IUser } from "../../db/interfaces/User.interface";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
+import { AuthenticatedRequest } from "../middlewares/auth.middleware";
 
 // 회원정보 수정
-export const updateUser = async (req: Request, res: Response) => {
+export const updateUser = async (req: AuthenticatedRequest, res: Response) => {
   try {
-    // 쿠키에서 토큰 가져오기
-    const token = req.cookies.token;
-    if (!token) {
-      return res.status(401).json({ message: "인증 토큰이 없습니다." });
-    }
-
-    // 토큰 해독하여 userId 추출
-    const decoded = jwt.verify(
-      token,
-      process.env.JWT_SECRET || "defaultSecret"
-    ) as { id: string };
-    const userId = decoded.id;
+    const userId = req.userId;
     const { name, password } = req.body;
 
     const user = await User.findOne({ id: userId });
@@ -52,20 +42,9 @@ export const updateUser = async (req: Request, res: Response) => {
 };
 
 // 좋아요 관리
-export const likePlace = async (req: Request, res: Response) => {
-  // 쿠키에서 토큰 가져오기
-  const token = req.cookies.token;
-  if (!token) {
-    return res.status(401).json({ message: "인증 토큰이 없습니다." });
-  }
-
+export const likePlace = async (req: AuthenticatedRequest, res: Response) => {
   try {
-    // 토큰 해독하여 userId 추출
-    const decoded = jwt.verify(
-      token,
-      process.env.JWT_SECRET || "defaultSecret"
-    ) as { id: string };
-    const userId = decoded.id;
+    const userId = req.userId;
     const { likedPlaces } = req.body;
 
     await User.updateOne({ id: userId }, { $set: { likePlace: likedPlaces } });
