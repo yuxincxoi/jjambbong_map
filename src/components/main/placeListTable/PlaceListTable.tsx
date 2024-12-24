@@ -21,17 +21,10 @@ const PlaceListTable = () => {
   };
 
   const handleLikeToggle = async (place: ILikePlace, isLike: boolean) => {
-    let updatedLikedPlaces;
-
-    if (isLike) {
-      updatedLikedPlaces = [...likedPlaces, place];
-    } else {
-      updatedLikedPlaces = likedPlaces.filter(
-        (p) => p.placeName !== place.placeName || p.address !== place.address
-      );
-    }
-
-    setLikedPlaces(updatedLikedPlaces);
+    const likePlace: ILikePlace = {
+      placeName: place.placeName,
+      address: place.address,
+    };
 
     try {
       await fetch("/api/users/likeplace", {
@@ -39,7 +32,7 @@ const PlaceListTable = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ likedPlaces: updatedLikedPlaces }),
+        body: JSON.stringify({ likedPlaces: likePlace }),
       });
     } catch (error) {
       console.error("Error updating likePlace:", error);
