@@ -53,6 +53,21 @@ export const likePlace = async (req: AuthenticatedRequest, res: Response) => {
       return res.status(404).json({ message: "사용자를 찾을 수 없습니다." });
     }
 
+    // 이미 좋아요한 장소인지 확인
+    const existingIndex = user.likePlace.findIndex(
+      (place) =>
+        place.placeName === likedPlaces.placeName &&
+        place.address === likedPlaces.address
+    );
+
+    if (existingIndex !== -1) {
+      user.likePlace.splice(existingIndex, 1);
+      console.log("좋아요 취소");
+    } else {
+      user.likePlace.push(likedPlaces);
+      console.log("좋아요 추가");
+    }
+
     res.status(200).json({ message: "likePlace가 업데이트되었습니다." });
   } catch (error) {
     console.error(error);
