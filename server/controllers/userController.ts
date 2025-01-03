@@ -63,10 +63,15 @@ export const likePlace = async (req: AuthenticatedRequest, res: Response) => {
     if (existingIndex !== -1) {
       user.likePlace.splice(existingIndex, 1);
       console.log("좋아요 취소");
+      console.log(user.likePlace);
     } else {
       user.likePlace.push(likedPlaces);
       console.log("좋아요 추가");
+      console.log(user.likePlace);
     }
+
+    // 변경사항 저장
+    await user.save();
 
     res.status(200).json({ message: "likePlace가 업데이트되었습니다." });
   } catch (error) {
