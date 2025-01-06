@@ -11,6 +11,25 @@ const EachPlace: React.FC<EachPlaceProps> = ({ place, onLikeToggle }) => {
     onLikeToggle(place, !isHeartOn);
   };
 
+  useEffect(() => {
+    const data = loadLikedPlaces();
+    console.log("data is", data);
+  }, []);
+
+  const loadLikedPlaces = async () => {
+    try {
+      const response = await fetch("/mainPage", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      return await response.json();
+    } catch (error) {
+      console.error("Error fetching liked places:", error);
+    }
+  };
+
   return (
     <>
       <div className="bg-white w-[99%] m-1 flex justify-between">
