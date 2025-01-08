@@ -12,8 +12,19 @@ const EachPlace: React.FC<EachPlaceProps> = ({ place, onLikeToggle }) => {
   };
 
   useEffect(() => {
-    const data = loadLikedPlaces();
-    console.log("data is", data);
+    const fetchLikedPlaces = async () => {
+      const data = await loadLikedPlaces();
+
+      // 좋아요 상태 확인
+      const isLiked = data.some(
+        (likedPlace: { placeName: string; address: string }) =>
+          likedPlace.placeName === place.placeName &&
+          likedPlace.address === place.address
+      );
+
+      setIsHeartOn(isLiked);
+    };
+    fetchLikedPlaces();
   }, []);
 
   const loadLikedPlaces = async () => {
