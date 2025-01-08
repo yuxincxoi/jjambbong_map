@@ -79,3 +79,23 @@ export const likePlace = async (req: AuthenticatedRequest, res: Response) => {
     res.status(500).json({ message: "likePlace 업데이트 실패" });
   }
 };
+
+export const userInfo = async (req: AuthenticatedRequest, res: Response) => {
+  try {
+    const userId = req.userId;
+
+    if (!userId) {
+      return res.status(401).json({ message: "인증되지 않은 사용자입니다." });
+    }
+
+    const user = await User.findOne({ id: userId });
+    if (!user) {
+      return res.status(404).json({ message: "사용자를 찾을 수 없습니다." });
+    }
+
+    res.status(200).json({ name: user.name });
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+    res.status(500).json({ message: "서버 오류가 발생했습니다." });
+  }
+};
