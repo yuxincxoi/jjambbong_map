@@ -13,7 +13,7 @@ const PlaceListTable = () => {
     try {
       setPlaces([]);
       const result = await searchPlace(searchValue);
-      setPlaces(result);
+      setPlaces(result || []);
     } catch (error) {
       console.error(error);
       setPlaces([]);
