@@ -20,9 +20,9 @@ export const initMap = () => {
     const map = new window.kakao.maps.Map(container, options);
   } catch (error) {
     if (error instanceof Error) {
-      throw new Error(`지도 초기화 중 오류 발생: ${error.message}`);
+      console.error("지도 초기화 중 오류 발생:", error);
     } else {
-      throw new Error("알 수 없는 오류가 발생했습니다.");
+      console.error("알 수 없는 오류가 발생:", error);
     }
   }
 };

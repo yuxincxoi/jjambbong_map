@@ -37,7 +37,9 @@ export const updateUser = async (req: AuthenticatedRequest, res: Response) => {
       },
     });
   } catch (error) {
-    return res.status(500).json({ message: "회원정보 수정 중 오류 발생" });
+    return res
+      .status(500)
+      .json({ message: "회원정보 수정 중 오류 발생", error });
   }
 };
 
@@ -75,8 +77,7 @@ export const likePlace = async (req: AuthenticatedRequest, res: Response) => {
 
     res.status(200).json({ message: "likePlace가 업데이트되었습니다." });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "likePlace 업데이트 실패" });
+    res.status(500).json({ message: "likePlace 업데이트 실패", error });
   }
 };
 
@@ -95,7 +96,6 @@ export const userInfo = async (req: AuthenticatedRequest, res: Response) => {
 
     res.status(200).json({ name: user.name });
   } catch (error) {
-    console.error("Error fetching user data:", error);
-    res.status(500).json({ message: "서버 오류가 발생했습니다." });
+    res.status(500).json({ message: "서버 오류가 발생했습니다.", error });
   }
 };

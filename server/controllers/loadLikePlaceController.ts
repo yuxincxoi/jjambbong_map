@@ -18,9 +18,11 @@ export const loadLikePlace = async (
     // 사용자의 좋아요 목록 반환
     return res.status(200).json(user.likePlace);
   } catch (error) {
-    console.error(error);
     return res
       .status(500)
-      .json({ message: "좋아요 목록을 불러오는 중 오류가 발생했습니다." });
+      .json({
+        message: "좋아요 목록을 불러오는 중 오류가 발생했습니다.",
+        error,
+      });
   }
 };

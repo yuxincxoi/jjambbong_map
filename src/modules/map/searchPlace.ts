@@ -72,6 +72,6 @@ export const searchPlace = async (searchValue: string) => {
       });
     });
   } catch (error) {
-    throw new Error("맵 로딩 실패");
+    console.error("맵 로딩 실패:", error);
   }
 };
