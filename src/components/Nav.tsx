@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import Button from "../components/Button";
 
 const Nav: React.FC = () => {
   const [isHidden, setIsHidden] = useState(true);
@@ -20,7 +22,13 @@ const Nav: React.FC = () => {
             isHidden ? "hidden" : "block"
           }`}
           onMouseLeave={handleHover}
-        ></div>
+        >
+          <div>
+            <div>김개똥</div>
+            <div>gg@gmail.com</div>
+            <hr />
+          </div>
+        </div>
       </div>
     </>
   );
