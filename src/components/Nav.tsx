@@ -31,23 +31,35 @@ const Nav: React.FC = () => {
           <div>
             <div>
               <Link to="/mainPage">
-                <Button buttonName="Home" />
+                <Button
+                  buttonName="Home"
+                  className="text-xl mt-1 font-thin hover:font-normal"
+                />
               </Link>
             </div>
             <div>
               <Link to="/likePage">
-                <Button buttonName="Like" />
+                <Button
+                  buttonName="Like"
+                  className="text-xl mt-1 font-thin hover:font-normal"
+                />
               </Link>
             </div>
             <div>
               <Link to="/myPage">
-                <Button buttonName="My page" />
+                <Button
+                  buttonName="My page"
+                  className="text-xl mt-1 font-thin hover:font-normal"
+                />
               </Link>
             </div>
           </div>
-          <div>
+          <div className="flex justify-end mr-4 mt-9">
             <Link to="/">
-              <Button buttonName="로그아웃" />
+              <Button
+                buttonName="로그아웃"
+                className="underline text-[#A6A6A6] text-sm hover:no-underline"
+              />
             </Link>
           </div>
         </div>
