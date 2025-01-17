@@ -32,8 +32,10 @@ const UserInfo: React.FC = () => {
 
   return (
     <>
-      <div>{userName || "사용자"}</div>
-      <div>{userId || "id"}</div>
+      <div className="ml-4 my-3">
+        <div className="text-xl font-semibold">{userName || "사용자"}</div>
+        <div className="text-lg font-thin">{userId || "id"}</div>
+      </div>
     </>
   );
 };
