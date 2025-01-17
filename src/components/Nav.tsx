@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
+import UserInfo from "./UserInfo";
 
 const Nav: React.FC = () => {
   const [isHidden, setIsHidden] = useState(true);
@@ -24,8 +25,7 @@ const Nav: React.FC = () => {
           onMouseLeave={handleHover}
         >
           <div>
-            <div>김개똥</div>
-            <div>gg@gmail.com</div>
+            <UserInfo />
             <hr />
           </div>
           <div>
