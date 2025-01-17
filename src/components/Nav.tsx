@@ -19,7 +19,7 @@ const Nav: React.FC = () => {
           onMouseLeave={handleHover}
         ></div>
         <div
-          className={`w-40 h-80 rounded-lg border border-stone-300 ${
+          className={`w-48 h-72 rounded-lg border border-stone-300 ${
             isHidden ? "hidden" : "block"
           }`}
           onMouseLeave={handleHover}
