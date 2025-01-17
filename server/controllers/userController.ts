@@ -94,7 +94,7 @@ export const userInfo = async (req: AuthenticatedRequest, res: Response) => {
       return res.status(404).json({ message: "사용자를 찾을 수 없습니다." });
     }
 
-    res.status(200).json({ name: user.name });
+    res.status(200).json({ name: user.name, id: user.id });
   } catch (error) {
     res.status(500).json({ message: "서버 오류가 발생했습니다.", error });
   }
