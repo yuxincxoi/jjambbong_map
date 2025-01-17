@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 const UserInfo: React.FC = () => {
   const [userName, setUserName] = useState<string>("");
+  const [userId, setUserId] = useState<string>("");
 
   useEffect(() => {
     const fetchUserName = async () => {
@@ -17,6 +18,7 @@ const UserInfo: React.FC = () => {
         if (response.ok) {
           const data = await response.json();
           setUserName(data.name);
+          setUserId(data.id);
         } else {
           console.error("Failed to fetch user information.");
         }
