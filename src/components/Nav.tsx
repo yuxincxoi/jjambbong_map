@@ -28,6 +28,28 @@ const Nav: React.FC = () => {
             <div>gg@gmail.com</div>
             <hr />
           </div>
+          <div>
+            <div>
+              <Link to="/mainPage">
+                <Button buttonName="Home" />
+              </Link>
+            </div>
+            <div>
+              <Link to="/likePage">
+                <Button buttonName="Like" />
+              </Link>
+            </div>
+            <div>
+              <Link to="/myPage">
+                <Button buttonName="My page" />
+              </Link>
+            </div>
+          </div>
+          <div>
+            <Link to="/">
+              <Button buttonName="로그아웃" />
+            </Link>
+          </div>
         </div>
       </div>
     </>
