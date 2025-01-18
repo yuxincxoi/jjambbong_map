@@ -17,7 +17,7 @@ const Nav: React.FC = () => {
 
   return (
     <>
-      <div className="flex sticky">
+      <div className="flex fixed bottom-10 left-6 z-50">
         <div
           className="w-24 h-24 mt-64 pr-2 bg-cover bg-no-repeat"
           style={{ backgroundImage: navBtn }}
