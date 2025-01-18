@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import UserInfo from "./UserInfo";
@@ -10,10 +10,17 @@ const Nav: React.FC = () => {
   const likePageBtn = "url('./img/emptyHeart.png')";
 
   const [isHidden, setIsHidden] = useState(true);
+  const [page, setPage] = useState<JSX.Element | string>("");
 
   const handleHover = () => {
     setIsHidden((prev) => !prev);
   };
+
+  useEffect(() => {
+    const newPage = window.location.pathname.split("/").pop() || "";
+
+    setPage(newPage);
+  }, [window.location.pathname]);
 
   return (
     <>
@@ -43,7 +50,9 @@ const Nav: React.FC = () => {
               <Link to="/mainPage">
                 <Button
                   buttonName="Home"
-                  className="text-xl mt-1 font-thin hover:font-normal"
+                  className={`text-xl mt-1 hover:font-normal ${
+                    page === "mainPage" ? "font-normal" : "font-thin"
+                  }`}
                 />
               </Link>
             </div>
@@ -55,7 +64,9 @@ const Nav: React.FC = () => {
               <Link to="/likePage">
                 <Button
                   buttonName="Like"
-                  className="text-xl mt-1 font-thin hover:font-normal"
+                  className={`text-xl mt-1 hover:font-normal ${
+                    page === "likePage" ? "font-normal" : "font-thin"
+                  }`}
                 />
               </Link>
             </div>
@@ -67,7 +78,9 @@ const Nav: React.FC = () => {
               <Link to="/myPage">
                 <Button
                   buttonName="My page"
-                  className="text-xl mt-1 font-thin hover:font-normal"
+                  className={`text-xl mt-1 hover:font-normal ${
+                    page === "myPage" ? "font-normal" : "font-thin"
+                  }`}
                 />
               </Link>
             </div>
