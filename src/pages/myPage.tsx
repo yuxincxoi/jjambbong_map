@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Title from "../components/Title";
 import Input from "../components/Input";
 import Button from "../components/Button";
@@ -9,6 +9,32 @@ export default function MyPage() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  useEffect(() => {
+    const fetchUserName = async () => {
+      try {
+        const response = await fetch("/api/users/me", {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setName(data.name);
+          setId(data.id);
+        } else {
+          console.error("Failed to fetch user information.");
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchUserName();
+  }, []);
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -50,7 +76,7 @@ export default function MyPage() {
       <Title />
       <Input
         type="text"
-        placeholder="name"
+        placeholder={name}
         name="name"
         value={name}
         onChange={(e) => setName(e.target.value)}
@@ -58,7 +84,7 @@ export default function MyPage() {
       />
       <Input
         type="text"
-        placeholder="ID"
+        placeholder={id}
         name="id"
         value={id}
         onChange={(e) => setId(e.target.value)}
