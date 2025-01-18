@@ -19,14 +19,14 @@ const Nav: React.FC = () => {
     <>
       <div className="flex fixed bottom-10 left-6 z-50">
         <div
-          className="w-24 h-24 mt-64 pr-2 bg-cover bg-no-repeat"
+          className="w-24 h-24 mt-64 pr-2 bg-cover bg-no-repeat transform transition duration-500 hover:scale-105"
           style={{ backgroundImage: navBtn }}
           onMouseEnter={handleHover}
           onMouseLeave={handleHover}
         ></div>
         <div
-          className={`w-48 h-72 rounded-lg border border-stone-300 ${
-            isHidden ? "hidden" : "block"
+          className={`w-48 h-72 rounded-lg border border-stone-300 transition-opacity duration-500 ${
+            isHidden ? "opacity-0 pointer-events-none" : "opacity-100"
           }`}
           onMouseLeave={handleHover}
         >
