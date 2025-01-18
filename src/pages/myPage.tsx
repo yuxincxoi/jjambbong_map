@@ -62,6 +62,7 @@ export default function MyPage() {
         name="id"
         value={id}
         onChange={(e) => setId(e.target.value)}
+        disabled={true}
       />
       <Input
         type="password"
