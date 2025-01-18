@@ -4,5 +4,6 @@ export default interface InputProps {
   className?: string;
   name?: string;
   value?: string;
+  disabled?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
