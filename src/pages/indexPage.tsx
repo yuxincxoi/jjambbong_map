@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Title from "../components/Title";
 import Input from "../components/Input";
 import Button from "../components/Button";
-import Nav from "../components/Nav";
 
 function IndexPage() {
   const [id, setId] = useState("");
