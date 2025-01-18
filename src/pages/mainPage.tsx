@@ -3,10 +3,12 @@ import Title from "../components/Title";
 import PlaceListTable from "../components/main/placeListTable/PlaceListTable";
 import UserInfo from "../components/UserInfo";
 import { Link } from "react-router-dom";
+import Nav from "../components/Nav";
 
 const MainPage: React.FC = () => {
   return (
     <>
+      <Nav />
       <Title />
       <Map />
       <PlaceListTable />

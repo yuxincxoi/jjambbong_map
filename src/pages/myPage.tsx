@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Title from "../components/Title";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import Nav from "../components/Nav";
 
 export default function MyPage() {
   const [name, setName] = useState("");
@@ -50,6 +51,7 @@ export default function MyPage() {
 
   return (
     <div className="mt-[170px]">
+      <Nav />
       <Title />
       <Input
         type="text"
