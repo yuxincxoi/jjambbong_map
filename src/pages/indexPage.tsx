@@ -72,7 +72,6 @@ function IndexPage() {
           />
         </Link>
       </div>
-      <Nav />
     </div>
   );
 }
