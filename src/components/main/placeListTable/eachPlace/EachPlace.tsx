@@ -29,7 +29,7 @@ const EachPlace: React.FC<EachPlaceProps> = ({ place, onLikeToggle }) => {
 
   const loadLikedPlaces = async () => {
     try {
-      const response = await fetch("/mainPage", {
+      const response = await fetch("/api/likes", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

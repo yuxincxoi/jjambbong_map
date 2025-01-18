@@ -4,6 +4,6 @@ import { authenticateUser } from "../middlewares/auth.middleware";
 
 const router = express.Router();
 
-router.get("/mainPage", authenticateUser, loadLikePlace);
+router.get("/likes", authenticateUser, loadLikePlace);
 
 export default router;

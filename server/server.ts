@@ -20,7 +20,7 @@ app.use(cookieParser());
 // 라우트 추가
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
-app.use("/", loadLikePlaceRoutes);
+app.use("/api", loadLikePlaceRoutes);
 
 // 클라이언트 빌드 파일을 서빙 (React 빌드 결과물)
 app.use(express.static(path.join(__dirname, "../dist")));
