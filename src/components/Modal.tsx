@@ -15,3 +15,20 @@ export const Modal: React.FC<ModalProps> = ({ message }) => {
     </>
   );
 };
+
+export const CloseModal: React.FC<ModalProps> = ({ message }) => {
+  return (
+    <>
+      <div className="fixed inset-0 flex items-center justify-center bg-neutral-400 bg-opacity-50 backdrop-blur-sm">
+        <div className="w-[400px] h-[250px] bg-white rounded-xl">
+          <div className="text-right mr-4 mt-2 font-thin text-lg cursor-pointer">
+            X
+          </div>
+          <div className="h-[120px] flex items-center justify-center">
+            {message}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
