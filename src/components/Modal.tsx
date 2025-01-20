@@ -8,7 +8,10 @@ export const Modal: React.FC<ModalProps> = ({ message }) => {
         <div className="w-[400px] h-[250px] bg-white rounded-xl">
           <div className="text-center pt-16 h-32 text-lg">{message}</div>
           <div className="mt-8">
-            <Button buttonName="확인" />
+            <Button
+              buttonName="확인"
+              className="font-thin bg-main-color text-white hover:font-normal w-[160px] h-12 rounded-md"
+            />
           </div>
         </div>
       </div>
@@ -40,8 +43,14 @@ export const ConfirmModal: React.FC<ModalProps> = ({ message }) => {
         <div className="w-[400px] h-[250px] bg-white rounded-xl">
           <div className="text-center pt-16 h-32 text-lg">{message}</div>
           <div className="mt-8 flex justify-evenly">
-            <Button buttonName="확인" />
-            <Button buttonName="취소" />
+            <Button
+              buttonName="확인"
+              className="font-thin bg-main-color text-white hover:font-normal w-[160px] h-12 rounded-md"
+            />
+            <Button
+              buttonName="취소"
+              className="font-thin bg-neutral-200 hover:font-normal w-[160px] h-12 rounded-md"
+            />
           </div>
         </div>
       </div>
