@@ -1,7 +1,7 @@
 import ModalProps from "../interfaces/components/Modal.interface";
 import Button from "./Button";
 
-const Modal: React.FC<ModalProps> = ({ message }) => {
+export const Modal: React.FC<ModalProps> = ({ message }) => {
   return (
     <>
       <div className="fixed inset-0 flex items-center justify-center bg-neutral-400 bg-opacity-50 backdrop-blur-sm">
@@ -18,5 +18,3 @@ const Modal: React.FC<ModalProps> = ({ message }) => {
     </>
   );
 };
-
-export default Modal;
