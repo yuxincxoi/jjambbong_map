@@ -53,7 +53,7 @@ const PlaceListTable = () => {
               />
             ))
           ) : (
-            <p>검색된 장소가 없습니다.</p>
+            <p className="text-center py-4">검색된 장소가 없습니다</p>
           )}
         </div>
       </div>
