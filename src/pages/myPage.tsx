@@ -97,6 +97,7 @@ export default function MyPage() {
         message={modalMessage}
         isHidden={isConfirmModalHidden}
         setIsHidden={setIsConfirmModalHidden}
+        onConfirm={updateUserInfo}
       />
       <Nav />
       <Title />
