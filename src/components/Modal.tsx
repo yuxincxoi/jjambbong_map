@@ -17,7 +17,7 @@ export const Modal: React.FC<ModalProps> = ({ message }) => {
         }`}
       >
         <div className="w-[400px] h-[250px] bg-white rounded-xl">
-          <div className="text-center pt-16 h-32 text-lg">{message}</div>
+          <div className="text-center pt-16 h-32 text-md">{message}</div>
           <div className="mt-8">
             <Button
               buttonName="확인"
