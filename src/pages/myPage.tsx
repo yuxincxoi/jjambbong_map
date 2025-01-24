@@ -41,15 +41,7 @@ export default function MyPage() {
     fetchUserName();
   }, []);
 
-  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-
-    if (password !== confirmPassword) {
-      setIsModalHidden(false);
-      setMoalMessage("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
-      return;
-    }
-
+  const updateUserInfo = async () => {
     try {
       const updateData = {
         name,
@@ -74,6 +66,19 @@ export default function MyPage() {
     } catch (error) {
       alert(`회원정보 수정 중 에러가 발생했습니다: ${error}`);
     }
+  };
+
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      setIsModalHidden(false);
+      setMoalMessage("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+      return;
+    }
+
+    setIsConfirmModalHidden(false);
+    setMoalMessage("정보를 수정하시겠습니까?");
   };
 
   return (
