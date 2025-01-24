@@ -52,7 +52,7 @@ export const CloseModal: React.FC<ModalProps> = ({ message }) => {
           >
             X
           </div>
-          <div className="h-[120px] flex items-center justify-center text-lg">
+          <div className="h-[120px] flex items-center justify-center text-md">
             {message}
           </div>
         </div>
@@ -76,7 +76,7 @@ export const ConfirmModal: React.FC<ModalProps> = ({ message }) => {
         }`}
       >
         <div className="w-[400px] h-[250px] bg-white rounded-xl">
-          <div className="text-center pt-16 h-32 text-lg">{message}</div>
+          <div className="text-center pt-16 h-32 text-md">{message}</div>
           <div className="mt-8 flex justify-evenly">
             <Button
               buttonName="확인"
