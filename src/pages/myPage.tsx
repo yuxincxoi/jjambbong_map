@@ -11,6 +11,7 @@ export default function MyPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isModalHidden, setIsModalHidden] = useState(false);
+  const [modalMessage, setMoalMessage] = useState("");
 
   useEffect(() => {
     const fetchUserName = async () => {
@@ -43,6 +44,7 @@ export default function MyPage() {
 
     if (password !== confirmPassword) {
       setIsModalHidden(true);
+      setMoalMessage("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
       return;
     }
 
@@ -75,7 +77,7 @@ export default function MyPage() {
   return (
     <div className="mt-[170px]">
       <Modal
-        message="비밀번호와 비밀번호 확인이 일치하지 않습니다."
+        message={modalMessage}
         isHidden={isModalHidden}
         setIsHidden={setIsModalHidden}
       />
