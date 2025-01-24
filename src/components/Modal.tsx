@@ -69,6 +69,7 @@ export const ConfirmModal: React.FC<ModalProps> = ({
   message,
   isHidden,
   setIsHidden,
+  onConfirm = () => {},
 }) => {
   const handleHidden = () => {
     setIsHidden((prev) => !prev);
