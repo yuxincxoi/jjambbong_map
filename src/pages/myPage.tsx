@@ -3,7 +3,7 @@ import Title from "../components/Title";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import Nav from "../components/Nav";
-import { Modal } from "../components/Modal";
+import { Modal, CloseModal, ConfirmModal } from "../components/Modal";
 
 export default function MyPage() {
   const [name, setName] = useState("");
@@ -11,6 +11,8 @@ export default function MyPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isModalHidden, setIsModalHidden] = useState(true);
+  const [isCloseModalHidden, setIsCloseModalHidden] = useState(true);
+  const [isConfirmModalHidden, setIsConfirmModalHidden] = useState(true);
   const [modalMessage, setMoalMessage] = useState("");
 
   useEffect(() => {
@@ -80,6 +82,16 @@ export default function MyPage() {
         message={modalMessage}
         isHidden={isModalHidden}
         setIsHidden={setIsModalHidden}
+      />
+      <CloseModal
+        message={modalMessage}
+        isHidden={isCloseModalHidden}
+        setIsHidden={setIsCloseModalHidden}
+      />
+      <ConfirmModal
+        message={modalMessage}
+        isHidden={isConfirmModalHidden}
+        setIsHidden={setIsConfirmModalHidden}
       />
       <Nav />
       <Title />
