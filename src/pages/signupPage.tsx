@@ -3,12 +3,17 @@ import { Link, useNavigate } from "react-router-dom";
 import Title from "../components/Title";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import { Modal, CloseModal, ConfirmModal } from "../components/Modal";
 
 export default function SignupPage() {
   const [name, setName] = useState("");
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isModalHidden, setIsModalHidden] = useState(true);
+  const [isCloseModalHidden, setIsCloseModalHidden] = useState(true);
+  const [isConfirmModalHidden, setIsConfirmModalHidden] = useState(true);
+  const [modalMessage, setMoalMessage] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -46,6 +51,21 @@ export default function SignupPage() {
 
   return (
     <div className="mt-[170px]">
+      <Modal
+        message={modalMessage}
+        isHidden={isModalHidden}
+        setIsHidden={setIsModalHidden}
+      />
+      <CloseModal
+        message={modalMessage}
+        isHidden={isCloseModalHidden}
+        setIsHidden={setIsCloseModalHidden}
+      />
+      <ConfirmModal
+        message={modalMessage}
+        isHidden={isConfirmModalHidden}
+        setIsHidden={setIsConfirmModalHidden}
+      />
       <Title />
       <p className="flex justify-center mt-3 text-[#909090] font-thin">
         Create your Account
