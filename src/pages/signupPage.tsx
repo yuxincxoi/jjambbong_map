@@ -61,7 +61,7 @@ export default function SignupPage() {
         />
         <Input
           type="text"
-          placeholder="ID"
+          placeholder="email"
           name="id"
           value={id}
           onChange={(e) => setId(e.target.value)}
