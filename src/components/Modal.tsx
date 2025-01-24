@@ -92,6 +92,7 @@ export const ConfirmModal: React.FC<ModalProps> = ({
           <div className="mt-8 flex justify-evenly">
             <Button
               buttonName="확인"
+              onClick={handleOK}
               className="font-thin bg-main-color text-white hover:font-normal w-[160px] h-12 rounded-md"
             />
             <Button
