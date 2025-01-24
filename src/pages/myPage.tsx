@@ -10,7 +10,7 @@ export default function MyPage() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [isModalHidden, setIsModalHidden] = useState(false);
+  const [isModalHidden, setIsModalHidden] = useState(true);
   const [modalMessage, setMoalMessage] = useState("");
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function MyPage() {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      setIsModalHidden(true);
+      setIsModalHidden(false);
       setMoalMessage("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
       return;
     }
