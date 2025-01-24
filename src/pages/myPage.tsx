@@ -3,12 +3,14 @@ import Title from "../components/Title";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import Nav from "../components/Nav";
+import { Modal } from "../components/Modal";
 
 export default function MyPage() {
   const [name, setName] = useState("");
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isModalHidden, setIsModalHidden] = useState(false);
 
   useEffect(() => {
     const fetchUserName = async () => {
@@ -40,7 +42,7 @@ export default function MyPage() {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+      setIsModalHidden(true);
       return;
     }
 
@@ -72,6 +74,11 @@ export default function MyPage() {
 
   return (
     <div className="mt-[170px]">
+      <Modal
+        message="비밀번호와 비밀번호 확인이 일치하지 않습니다."
+        isHidden={isModalHidden}
+        setIsHidden={setIsModalHidden}
+      />
       <Nav />
       <Title />
       <Input
