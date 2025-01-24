@@ -33,9 +33,11 @@ export const Modal: React.FC<ModalProps> = ({
   );
 };
 
-export const CloseModal: React.FC<ModalProps> = ({ message }) => {
-  const [isHidden, setIsHidden] = useState(false);
-
+export const CloseModal: React.FC<ModalProps> = ({
+  message,
+  isHidden,
+  setIsHidden,
+}) => {
   const handleHidden = () => {
     setIsHidden((prev) => !prev);
   };
@@ -63,9 +65,11 @@ export const CloseModal: React.FC<ModalProps> = ({ message }) => {
   );
 };
 
-export const ConfirmModal: React.FC<ModalProps> = ({ message }) => {
-  const [isHidden, setIsHidden] = useState(false);
-
+export const ConfirmModal: React.FC<ModalProps> = ({
+  message,
+  isHidden,
+  setIsHidden,
+}) => {
   const handleHidden = () => {
     setIsHidden((prev) => !prev);
   };
