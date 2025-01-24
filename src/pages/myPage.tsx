@@ -63,6 +63,9 @@ export default function MyPage() {
       }
 
       const updatedUser = await response.json();
+
+      setIsCloseModalHidden(false);
+      setMoalMessage("수정이 완료되었습니다!");
     } catch (error) {
       alert(`회원정보 수정 중 에러가 발생했습니다: ${error}`);
     }
