@@ -2,9 +2,11 @@ import { useState } from "react";
 import ModalProps from "../interfaces/components/Modal.interface";
 import Button from "./Button";
 
-export const Modal: React.FC<ModalProps> = ({ message }) => {
-  const [isHidden, setIsHidden] = useState(false);
-
+export const Modal: React.FC<ModalProps> = ({
+  message,
+  isHidden,
+  setIsHidden,
+}) => {
   const handleHidden = () => {
     setIsHidden((prev) => !prev);
   };
