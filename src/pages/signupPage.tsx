@@ -16,14 +16,7 @@ export default function SignupPage() {
   const [modalMessage, setMoalMessage] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-
-    if (password !== confirmPassword) {
-      alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
-      return;
-    }
-
+  const createUser = async () => {
     try {
       const response = await fetch("/api/auth/register", {
         method: "POST",
@@ -49,6 +42,15 @@ export default function SignupPage() {
     }
   };
 
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+      return;
+    }
+  };
+
   return (
     <div className="mt-[170px]">
       <Modal
@@ -65,6 +67,7 @@ export default function SignupPage() {
         message={modalMessage}
         isHidden={isConfirmModalHidden}
         setIsHidden={setIsConfirmModalHidden}
+        onConfirm={createUser}
       />
       <Title />
       <p className="flex justify-center mt-3 text-[#909090] font-thin">
