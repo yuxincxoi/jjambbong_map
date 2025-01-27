@@ -38,8 +38,11 @@ export default function SignupPage() {
       setIsCloseModalHidden(false);
       setMoalMessage("회원가입이 완료되었습니다!");
 
-      // 로그인 성공 시 인덱스 페이지로 이동
-      navigate("/");
+      // 로그인 성공 시 2초 후 인덱스 페이지로 이동
+      setTimeout(() => {
+        setIsCloseModalHidden(true);
+        navigate("/");
+      }, 2000);
     } catch (error) {
       alert("회원가입 중 예기치 않은 오류가 발생했습니다.");
     }
