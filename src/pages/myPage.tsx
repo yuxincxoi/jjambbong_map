@@ -67,8 +67,11 @@ export default function MyPage() {
       setIsCloseModalHidden(false);
       setMoalMessage("수정이 완료되었습니다!");
 
-      setPassword("");
-      setConfirmPassword("");
+      setTimeout(() => {
+        setIsCloseModalHidden(true);
+        setPassword("");
+        setConfirmPassword("");
+      }, 2000);
     } catch (error) {
       alert(`회원정보 수정 중 에러가 발생했습니다: ${error}`);
     }
