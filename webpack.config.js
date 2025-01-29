@@ -18,13 +18,11 @@ module.exports = {
   output: {
     filename: "index.bundle.js",
     path: path.resolve(__dirname, "dist"),
-    clean: true,
   },
   devServer: {
     static: "./dist",
     port: 3000,
     open: true,
-    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -47,11 +45,5 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".js", ".jsx", ".tsx", ".css"],
   },
-  plugins: [
-    definePlugin,
-    new HtmlWebpackPlugin({
-      template: "public/index.html", // 템플릿 HTML 사용
-      filename: "index.html", // 출력될 파일명
-    }),
-  ],
+  plugins: [definePlugin],
 };
