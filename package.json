@@ -132,6 +132,7 @@
     "autoprefixer": "^10.4.20",
     "cross-env": "^7.0.3",
     "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
     "kakao.maps.d.ts": "^0.1.40",
     "mongoose": "^8.8.3",
     "postcss": "^8.4.47",
