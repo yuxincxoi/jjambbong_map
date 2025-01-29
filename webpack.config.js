@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const dotenv = require("dotenv");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 // .env.local 파일에서 환경 변수 로드
 const env = dotenv.config({ path: ".env.local" }).parsed;
@@ -17,6 +18,7 @@ module.exports = {
   output: {
     filename: "index.bundle.js",
     path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
   devServer: {
     static: "./dist",
@@ -45,5 +47,11 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".js", ".jsx", ".tsx", ".css"],
   },
-  plugins: [definePlugin],
+  plugins: [
+    definePlugin,
+    new HtmlWebpackPlugin({
+      template: "public/index.html", // 템플릿 HTML 사용
+      filename: "index.html", // 출력될 파일명
+    }),
+  ],
 };
