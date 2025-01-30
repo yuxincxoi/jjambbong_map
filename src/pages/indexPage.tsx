@@ -40,14 +40,14 @@ function IndexPage() {
   return (
     <div className="mt-[200px]">
       <Title />
-      <form>
+      <form className="mt-6">
         <Input
           type="text"
           placeholder="email"
           name="id"
           value={id}
           onChange={(e) => setId(e.target.value)}
-          className="mt-4"
+          className="mb-2"
         />
         <Input
           type="password"

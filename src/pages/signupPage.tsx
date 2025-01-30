@@ -83,14 +83,13 @@ export default function SignupPage() {
       <p className="flex justify-center mt-3 text-[#909090] font-thin">
         Create your Account
       </p>
-      <form>
+      <form className="mt-6">
         <Input
           type="text"
           placeholder="name"
           name="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="mt-3"
         />
         <Input
           type="text"

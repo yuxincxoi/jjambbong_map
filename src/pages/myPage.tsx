@@ -110,41 +110,42 @@ export default function MyPage() {
       />
       <Nav />
       <Title />
-      <Input
-        type="text"
-        placeholder={name}
-        name="name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        className="mt-4"
-      />
-      <Input
-        type="text"
-        placeholder={id}
-        name="id"
-        value={id}
-        onChange={(e) => setId(e.target.value)}
-        disabled={true}
-      />
-      <Input
-        type="password"
-        placeholder="password"
-        name="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <Input
-        type="password"
-        placeholder="confirm password"
-        name="confirmPassword"
-        value={confirmPassword}
-        onChange={(e) => setConfirmPassword(e.target.value)}
-      />
-      <Button
-        buttonName="Save"
-        onClick={handleSubmit}
-        className="w-60 h-9 mt-4 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
-      />
+      <form className="mt-6">
+        <Input
+          type="text"
+          placeholder={name}
+          name="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <Input
+          type="text"
+          placeholder={id}
+          name="id"
+          value={id}
+          onChange={(e) => setId(e.target.value)}
+          disabled={true}
+        />
+        <Input
+          type="password"
+          placeholder="password"
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Input
+          type="password"
+          placeholder="confirm password"
+          name="confirmPassword"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
+        <Button
+          buttonName="Save"
+          onClick={handleSubmit}
+          className="w-60 h-9 mt-4 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
+        />
+      </form>
     </div>
   );
 }
