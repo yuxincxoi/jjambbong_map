@@ -43,7 +43,7 @@ function IndexPage() {
       <form className="mt-6">
         <Input
           type="text"
-          placeholder="email"
+          placeholder="Email"
           name="id"
           value={id}
           onChange={(e) => setId(e.target.value)}
