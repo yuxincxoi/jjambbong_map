@@ -18,6 +18,20 @@ export default function MyPage() {
   const [isCloseModalHidden, setIsCloseModalHidden] = useState(true);
   const [isConfirmModalHidden, setIsConfirmModalHidden] = useState(true);
   const [modalMessage, setModalMessage] = useState("");
+  const [btnStyle, setBtnStyle] = useState("");
+
+  useEffect(() => {
+    if (
+      !validateName(name) ||
+      !validatePassword(password) ||
+      !validateConfirmPassword(password, confirmPassword) ||
+      !validateFields(id, name, password, confirmPassword)
+    ) {
+      setBtnStyle("bg-[#ffaaaa]");
+    } else {
+      setBtnStyle("");
+    }
+  }, [name, id, password, confirmPassword]);
 
   useEffect(() => {
     const fetchUserName = async () => {
@@ -171,7 +185,7 @@ export default function MyPage() {
         <Button
           buttonName="Save"
           onClick={handleSubmit}
-          className="w-80 h-9 mt-10 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
+          className={`w-80 h-9 mt-10 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white ${btnStyle}`}
         />
       </form>
     </div>
