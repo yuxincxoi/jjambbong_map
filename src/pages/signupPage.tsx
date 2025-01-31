@@ -5,6 +5,7 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import { Modal, CloseModal, ConfirmModal } from "../components/Modal";
 import { validateEmail } from "../modules/validation/emailValidation";
+import { validatePassword } from "../modules/validation/passwordValidation";
 
 export default function SignupPage() {
   const [name, setName] = useState("");
@@ -55,6 +56,14 @@ export default function SignupPage() {
     if (!validateEmail(id)) {
       setIsModalHidden(false);
       setModalMessage("유효한 이메일 주소를 입력하세요.");
+      return;
+    }
+
+    if (!validatePassword(password)) {
+      setIsModalHidden(false);
+      setModalMessage(
+        "비밀번호는 8자 이상/영문/숫자/특수문자를 포함해야 합니다."
+      );
       return;
     }
 
