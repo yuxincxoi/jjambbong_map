@@ -134,14 +134,20 @@ export default function SignupPage() {
           onChange={(e) => setName(e.target.value)}
           firstclassName="w-80 mt-3"
         />
-        <Input
-          type="text"
-          placeholder="E-mail"
-          name="id"
-          value={id}
-          onChange={(e) => setId(e.target.value)}
-          firstclassName="w-80 mt-8"
-        />
+        <div className="mt-8 flex justify-center">
+          <Input
+            type="text"
+            placeholder="E-mail"
+            name="id"
+            value={id}
+            onChange={(e) => setId(e.target.value)}
+            firstclassName="w-80"
+          />
+          <Button
+            buttonName="중복 확인"
+            className="bg-main-color w-16 h-8 text-white text-sm rounded-lg absolute z-10 my-[5px] mr-[74px] hover:border-main-color hover:text-main-color hover:bg-white"
+          />
+        </div>
         <Input
           type="password"
           placeholder="비밀번호"
