@@ -91,7 +91,7 @@ export default function MyPage() {
   };
 
   return (
-    <div className="mt-[170px]">
+    <div className="mt-[140px]">
       <Modal
         message={modalMessage}
         isHidden={isModalHidden}
@@ -110,13 +110,14 @@ export default function MyPage() {
       />
       <Nav />
       <Title />
-      <form className="mt-6">
+      <form className="mt-5">
         <Input
           type="text"
           placeholder={name}
           name="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          firstclassName="w-80 mt-3"
         />
         <Input
           type="text"
@@ -125,6 +126,8 @@ export default function MyPage() {
           value={id}
           onChange={(e) => setId(e.target.value)}
           disabled={true}
+          firstclassName="w-80 mt-8"
+          secondclassName="transition duration-200 disabled:bg-gray-50 disabled:text-gray-400 disabled:border-gray-200 disabled:cursor-not-allowed disabled:opacity-75 focus:disabled:ring-0 focus:disabled:border-gray-200"
         />
         <Input
           type="password"
@@ -132,18 +135,23 @@ export default function MyPage() {
           name="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          firstclassName="w-80 mt-8"
         />
+        <p className="flex w-80 mx-auto px-2 mt-1 text-[#909090] font-thin text-xs">
+          * 8자 이상/영문/숫자/특수문자 포함
+        </p>
         <Input
           type="password"
           placeholder="confirm password"
           name="confirmPassword"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
+          firstclassName="w-80 mt-3"
         />
         <Button
           buttonName="Save"
           onClick={handleSubmit}
-          className="w-60 h-9 mt-4 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
+          className="w-80 h-9 mt-10 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
         />
       </form>
     </div>
