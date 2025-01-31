@@ -4,6 +4,10 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import Nav from "../components/Nav";
 import { Modal, CloseModal, ConfirmModal } from "../components/Modal";
+import { validatePassword } from "../modules/validation/passwordValidation";
+import { validateName } from "../modules/validation/nameValidation";
+import { validateConfirmPassword } from "../modules/validation/confirmPasswordValidation";
+import { validateFields } from "../modules/validation/fieldsValidation";
 
 export default function MyPage() {
   const [name, setName] = useState("");
@@ -80,7 +84,23 @@ export default function MyPage() {
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    if (password !== confirmPassword) {
+    if (!validateName(name)) {
+      setIsModalHidden(false);
+      setModalMessage(
+        "이름은 2자 이상 20자 이하의 한글 또는 영문만 가능합니다."
+      );
+      return;
+    }
+
+    if (!validatePassword(password)) {
+      setIsModalHidden(false);
+      setModalMessage(
+        "비밀번호는 8자 이상/영문/숫자/특수문자를 포함해야 합니다."
+      );
+      return;
+    }
+
+    if (!validateConfirmPassword(password, confirmPassword)) {
       setIsModalHidden(false);
       setModalMessage("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
       return;
