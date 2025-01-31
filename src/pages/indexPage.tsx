@@ -47,7 +47,7 @@ function IndexPage() {
           name="id"
           value={id}
           onChange={(e) => setId(e.target.value)}
-          className="mb-2"
+          className="w-60 mb-3"
         />
         <Input
           type="password"
@@ -55,11 +55,12 @@ function IndexPage() {
           name="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          className="w-60"
         />
         <Button
           buttonName="Sign in"
           onClick={(e) => handleSubmit(e)}
-          className="w-60 h-9 mt-4 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
+          className="w-60 h-9 mt-6 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
         />
       </form>
       <div className="flex mt-8 justify-center text-sm">
