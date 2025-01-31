@@ -13,7 +13,7 @@ export default function SignupPage() {
   const [isModalHidden, setIsModalHidden] = useState(true);
   const [isCloseModalHidden, setIsCloseModalHidden] = useState(true);
   const [isConfirmModalHidden, setIsConfirmModalHidden] = useState(true);
-  const [modalMessage, setMoalMessage] = useState("");
+  const [modalMessage, setModalMessage] = useState("");
   const navigate = useNavigate();
 
   const createUser = async () => {
@@ -36,7 +36,7 @@ export default function SignupPage() {
       const data = await response.json();
 
       setIsCloseModalHidden(false);
-      setMoalMessage("회원가입이 완료되었습니다!");
+      setModalMessage("회원가입이 완료되었습니다!");
 
       // 로그인 성공 시 2초 후 인덱스 페이지로 이동
       setTimeout(() => {
@@ -53,12 +53,12 @@ export default function SignupPage() {
 
     if (password !== confirmPassword) {
       setIsModalHidden(false);
-      setMoalMessage("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+      setModalMessage("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
       return;
     }
 
     setIsConfirmModalHidden(false);
-    setMoalMessage("회원가입 하시겠습니까?");
+    setModalMessage("회원가입 하시겠습니까?");
   };
 
   return (
