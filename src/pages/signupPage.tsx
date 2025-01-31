@@ -117,9 +117,6 @@ export default function SignupPage() {
           onChange={(e) => setName(e.target.value)}
           className="w-80 mt-3"
         />
-        <p className="flex w-80 mx-auto px-2 mt-1 text-[#909090] font-thin text-xs">
-          * 2~20자 이하의 한글 또는 영문
-        </p>
         <Input
           type="text"
           placeholder="email"
