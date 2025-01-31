@@ -111,7 +111,7 @@ export default function SignupPage() {
       <form className="mt-5">
         <Input
           type="text"
-          placeholder="name"
+          placeholder="이름"
           name="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -119,7 +119,7 @@ export default function SignupPage() {
         />
         <Input
           type="text"
-          placeholder="email"
+          placeholder="E-mail"
           name="id"
           value={id}
           onChange={(e) => setId(e.target.value)}
@@ -127,7 +127,7 @@ export default function SignupPage() {
         />
         <Input
           type="password"
-          placeholder="password"
+          placeholder="비밀번호"
           name="id"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -138,7 +138,7 @@ export default function SignupPage() {
         </p>
         <Input
           type="password"
-          placeholder="confirm password"
+          placeholder="비밀번호 확인"
           name="confirmPassword"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
