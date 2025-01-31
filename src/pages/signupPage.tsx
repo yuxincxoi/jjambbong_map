@@ -4,6 +4,7 @@ import Title from "../components/Title";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { Modal, CloseModal, ConfirmModal } from "../components/Modal";
+import { validateEmail } from "../modules/validation/emailValidation";
 
 export default function SignupPage() {
   const [name, setName] = useState("");
@@ -50,6 +51,12 @@ export default function SignupPage() {
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+
+    if (!validateEmail(id)) {
+      setIsModalHidden(false);
+      setModalMessage("유효한 이메일 주소를 입력하세요.");
+      return;
+    }
 
     if (password !== confirmPassword) {
       setIsModalHidden(false);
