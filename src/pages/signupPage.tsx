@@ -7,6 +7,7 @@ import { Modal, CloseModal, ConfirmModal } from "../components/Modal";
 import { validateEmail } from "../modules/validation/emailValidation";
 import { validatePassword } from "../modules/validation/passwordValidation";
 import { validateName } from "../modules/validation/nameValidation";
+import { validateConfirmPassword } from "../modules/validation/confirmPasswordValidation";
 
 export default function SignupPage() {
   const [name, setName] = useState("");
@@ -76,7 +77,7 @@ export default function SignupPage() {
       return;
     }
 
-    if (password !== confirmPassword) {
+    if (!validateConfirmPassword(password, confirmPassword)) {
       setIsModalHidden(false);
       setModalMessage("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
       return;
