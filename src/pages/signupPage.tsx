@@ -87,7 +87,7 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="mt-[170px]">
+    <div className="mt-[140px]">
       <Modal
         message={modalMessage}
         isHidden={isModalHidden}
@@ -108,13 +108,14 @@ export default function SignupPage() {
       <p className="flex justify-center mt-3 text-[#909090] font-thin">
         Create your Account
       </p>
-      <form className="mt-6">
+      <form className="mt-5">
         <Input
           type="text"
           placeholder="name"
           name="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          className="mt-3"
         />
         <Input
           type="text"
@@ -122,6 +123,7 @@ export default function SignupPage() {
           name="id"
           value={id}
           onChange={(e) => setId(e.target.value)}
+          className="mt-3"
         />
         <Input
           type="password"
@@ -129,6 +131,7 @@ export default function SignupPage() {
           name="id"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          className="mt-9"
         />
         <Input
           type="password"
@@ -136,11 +139,12 @@ export default function SignupPage() {
           name="confirmPassword"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
+          className="mt-3"
         />
         <Button
           buttonName="Sign up"
           onClick={(e) => handleSubmit(e)}
-          className="w-60 h-9 mt-4 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
+          className="w-80 h-9 mt-10 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
         />
       </form>
       <div className="flex justify-start">
