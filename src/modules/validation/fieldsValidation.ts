@@ -1,4 +1,4 @@
-export const validateSignupFields = (
+export const validateFields = (
   name: string,
   id: string,
   password: string,

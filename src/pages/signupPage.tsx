@@ -8,7 +8,7 @@ import { validateEmail } from "../modules/validation/emailValidation";
 import { validatePassword } from "../modules/validation/passwordValidation";
 import { validateName } from "../modules/validation/nameValidation";
 import { validateConfirmPassword } from "../modules/validation/confirmPasswordValidation";
-import { validateSignupFields } from "../modules/validation/fieldsValidation";
+import { validateFields } from "../modules/validation/fieldsValidation";
 
 export default function SignupPage() {
   const [name, setName] = useState("");
@@ -28,7 +28,7 @@ export default function SignupPage() {
       !validateEmail(id) ||
       !validatePassword(password) ||
       !validateConfirmPassword(password, confirmPassword) ||
-      !validateSignupFields(id, name, password, confirmPassword)
+      !validateFields(id, name, password, confirmPassword)
     ) {
       setBtnStyle("bg-[#ffaaaa]");
     } else {
