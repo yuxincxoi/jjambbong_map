@@ -47,7 +47,7 @@ function IndexPage() {
           name="id"
           value={id}
           onChange={(e) => setId(e.target.value)}
-          className="w-60 mb-3"
+          firstclassName="w-60 mb-3"
         />
         <Input
           type="password"
@@ -55,7 +55,7 @@ function IndexPage() {
           name="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-60"
+          firstclassName="w-60"
         />
         <Button
           buttonName="Sign in"

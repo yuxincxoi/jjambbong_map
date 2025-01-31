@@ -1,7 +1,8 @@
 export default interface InputProps {
   type: string;
   placeholder: string;
-  className?: string;
+  firstclassName?: string;
+  secondclassName?: string;
   name?: string;
   value?: string;
   disabled?: boolean;

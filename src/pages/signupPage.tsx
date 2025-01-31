@@ -132,7 +132,7 @@ export default function SignupPage() {
           name="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-80 mt-3"
+          firstclassName="w-80 mt-3"
         />
         <Input
           type="text"
@@ -140,7 +140,7 @@ export default function SignupPage() {
           name="id"
           value={id}
           onChange={(e) => setId(e.target.value)}
-          className="w-80 mt-8"
+          firstclassName="w-80 mt-8"
         />
         <Input
           type="password"
@@ -148,7 +148,7 @@ export default function SignupPage() {
           name="id"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-80 mt-8"
+          firstclassName="w-80 mt-8"
         />
         <p className="flex w-80 mx-auto px-2 mt-1 text-[#909090] font-thin text-xs">
           * 8자 이상/영문/숫자/특수문자 포함
@@ -159,7 +159,7 @@ export default function SignupPage() {
           name="confirmPassword"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
-          className="w-80 mt-3"
+          firstclassName="w-80 mt-3"
         />
         <Button
           buttonName="Sign up"
