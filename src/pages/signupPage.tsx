@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Title from "../components/Title";
 import Input from "../components/Input";
@@ -8,6 +8,7 @@ import { validateEmail } from "../modules/validation/emailValidation";
 import { validatePassword } from "../modules/validation/passwordValidation";
 import { validateName } from "../modules/validation/nameValidation";
 import { validateConfirmPassword } from "../modules/validation/confirmPasswordValidation";
+import { validateSignupFields } from "../modules/validation/fieldsValidation";
 
 export default function SignupPage() {
   const [name, setName] = useState("");
@@ -18,7 +19,22 @@ export default function SignupPage() {
   const [isCloseModalHidden, setIsCloseModalHidden] = useState(true);
   const [isConfirmModalHidden, setIsConfirmModalHidden] = useState(true);
   const [modalMessage, setModalMessage] = useState("");
+  const [btnStyle, setBtnStyle] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (
+      !validateName(name) ||
+      !validateEmail(id) ||
+      !validatePassword(password) ||
+      !validateConfirmPassword(password, confirmPassword) ||
+      !validateSignupFields(id, name, password, confirmPassword)
+    ) {
+      setBtnStyle("bg-[#ffaaaa]");
+    } else {
+      setBtnStyle("");
+    }
+  }, [name, id, password, confirmPassword]);
 
   const createUser = async () => {
     try {
@@ -148,7 +164,7 @@ export default function SignupPage() {
         <Button
           buttonName="Sign up"
           onClick={(e) => handleSubmit(e)}
-          className="w-80 h-9 mt-10 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white"
+          className={`w-80 h-9 mt-10 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white ${btnStyle}`}
         />
       </form>
       <div className="flex justify-start">
