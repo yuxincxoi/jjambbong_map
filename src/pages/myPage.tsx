@@ -13,7 +13,7 @@ export default function MyPage() {
   const [isModalHidden, setIsModalHidden] = useState(true);
   const [isCloseModalHidden, setIsCloseModalHidden] = useState(true);
   const [isConfirmModalHidden, setIsConfirmModalHidden] = useState(true);
-  const [modalMessage, setMoalMessage] = useState("");
+  const [modalMessage, setModalMessage] = useState("");
 
   useEffect(() => {
     const fetchUserName = async () => {
@@ -65,7 +65,7 @@ export default function MyPage() {
       const updatedUser = await response.json();
 
       setIsCloseModalHidden(false);
-      setMoalMessage("수정이 완료되었습니다!");
+      setModalMessage("수정이 완료되었습니다!");
 
       setTimeout(() => {
         setIsCloseModalHidden(true);
@@ -82,12 +82,12 @@ export default function MyPage() {
 
     if (password !== confirmPassword) {
       setIsModalHidden(false);
-      setMoalMessage("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+      setModalMessage("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
       return;
     }
 
     setIsConfirmModalHidden(false);
-    setMoalMessage("정보를 수정하시겠습니까?");
+    setModalMessage("정보를 수정하시겠습니까?");
   };
 
   return (
