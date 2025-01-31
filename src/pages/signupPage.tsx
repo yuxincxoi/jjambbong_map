@@ -6,6 +6,7 @@ import Button from "../components/Button";
 import { Modal, CloseModal, ConfirmModal } from "../components/Modal";
 import { validateEmail } from "../modules/validation/emailValidation";
 import { validatePassword } from "../modules/validation/passwordValidation";
+import { validateName } from "../modules/validation/nameValidation";
 
 export default function SignupPage() {
   const [name, setName] = useState("");
@@ -52,6 +53,14 @@ export default function SignupPage() {
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+
+    if (!validateName(name)) {
+      setIsModalHidden(false);
+      setModalMessage(
+        "이름은 2자 이상 20자 이하의 한글 또는 영문만 가능합니다."
+      );
+      return;
+    }
 
     if (!validateEmail(id)) {
       setIsModalHidden(false);
