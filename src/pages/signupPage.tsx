@@ -140,7 +140,7 @@ export default function SignupPage() {
           name="id"
           value={id}
           onChange={(e) => setId(e.target.value)}
-          className="w-80 mt-3"
+          className="w-80 mt-8"
         />
         <Input
           type="password"
