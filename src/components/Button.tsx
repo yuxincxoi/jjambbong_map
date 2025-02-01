@@ -4,7 +4,7 @@ const Button: React.FC<ButtonProps> = ({ buttonName, className, onClick }) => {
   return (
     <>
       <div className="flex justify-center">
-        <button onClick={onClick} className={`${className}`}>
+        <button type={type} onClick={onClick} className={`${className}`}>
           {buttonName}
         </button>
       </div>
