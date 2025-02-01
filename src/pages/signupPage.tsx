@@ -103,6 +103,31 @@ export default function SignupPage() {
     setModalMessage("회원가입 하시겠습니까?");
   };
 
+  const handleDuplication = async () => {
+    try {
+      const response = await fetch(
+        `/api/users/email-check?id=${encodeURIComponent(id)}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
+
+      // 응답 상태 확인
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "이메일 중복 확인 실패");
+      }
+
+      const data = await response.json();
+    } catch (error) {
+      alert("이메일 중복 확인 중 예기치 않은 오류가 발생했습니다.");
+    }
+  };
+
   return (
     <div className="mt-[140px]">
       <Modal
@@ -145,6 +170,8 @@ export default function SignupPage() {
           />
           <Button
             buttonName="중복 확인"
+            type="button"
+            onClick={handleDuplication}
             className="bg-main-color w-16 h-8 text-white text-sm rounded-lg absolute z-10 my-[5px] mr-[74px] hover:border-main-color hover:text-main-color hover:bg-white"
           />
         </div>
