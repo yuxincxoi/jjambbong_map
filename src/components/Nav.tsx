@@ -22,6 +22,24 @@ const Nav: React.FC = () => {
     setPage(newPage);
   }, [window.location.pathname]);
 
+  const handleLogout = async () => {
+    try {
+      const response = await fetch("/api/auth/logout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
+
+      if (!response.ok) {
+        throw new Error("로그아웃 실패");
+      }
+    } catch (error) {
+      alert("로그아웃 중 오류가 발생했습니다.");
+    }
+  };
+
   return (
     <>
       <div className="flex fixed bottom-10 left-6 z-50">
@@ -89,6 +107,7 @@ const Nav: React.FC = () => {
             <Link to="/">
               <Button
                 buttonName="로그아웃"
+                onClick={handleLogout}
                 className="underline text-[#A6A6A6] text-sm hover:no-underline"
               />
             </Link>
