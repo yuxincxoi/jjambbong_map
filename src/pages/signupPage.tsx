@@ -105,6 +105,12 @@ export default function SignupPage() {
 
   const handleDuplication = async () => {
     try {
+      if (!id) {
+        setIsModalHidden(false);
+        setModalMessage("이메일을 입력해주세요.");
+        return;
+      }
+
       const response = await fetch(
         `/api/users/email-check?id=${encodeURIComponent(id)}`,
         {
