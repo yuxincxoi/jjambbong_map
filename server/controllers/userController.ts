@@ -1,4 +1,4 @@
-import { Response } from "express";
+import { Response, RequestHandler } from "express";
 import User from "../../db/models/User.model";
 import { IUser } from "../../db/interfaces/User.interface";
 import jwt from "jsonwebtoken";
@@ -97,5 +97,22 @@ export const userInfo = async (req: AuthenticatedRequest, res: Response) => {
     res.status(200).json({ name: user.name, id: user.id });
   } catch (error) {
     res.status(500).json({ message: "서버 오류가 발생했습니다.", error });
+  }
+};
+
+// 아이디 중복 확인
+export const checkDuplication: RequestHandler = async (req, res) => {
+  try {
+    const userId = req.query.id as string;
+
+    if (!userId || typeof userId !== "string") {
+      return res.status(400).json({ message: "올바른 이메일을 입력하세요." });
+    }
+
+    const existingUser = await User.findOne({ id: userId });
+
+    res.status(200).json({ isDuplicate: !!existingUser });
+  } catch (error) {
+    res.status(500).json({ message: "이메일 중복 확인 중 오류 발생", error });
   }
 };
