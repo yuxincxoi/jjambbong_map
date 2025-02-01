@@ -129,6 +129,13 @@ export default function SignupPage() {
       }
 
       const data = await response.json();
+
+      setIsModalHidden(false);
+      setModalMessage(
+        data.isDuplicate
+          ? "이미 사용 중인 이메일입니다."
+          : "사용 가능한 이메일입니다."
+      );
     } catch (error) {
       alert("이메일 중복 확인 중 예기치 않은 오류가 발생했습니다.");
     }
