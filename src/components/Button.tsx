@@ -1,6 +1,11 @@
 import ButtonProps from "../interfaces/components/Button.interface";
 
-const Button: React.FC<ButtonProps> = ({ buttonName, className, onClick }) => {
+const Button: React.FC<ButtonProps> = ({
+  buttonName,
+  className,
+  onClick,
+  type,
+}) => {
   return (
     <>
       <div className="flex justify-center">
