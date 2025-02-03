@@ -1,6 +1,6 @@
 import { Response } from "express";
 import User from "../../db/models/User.model";
-import { AuthenticatedRequest } from "../middlewares/auth.middleware";
+import { AuthenticatedRequest } from "../interfaces/middlewares/authRequest.interface";
 
 // 좋아하는 장소 불러오기
 export const loadLikePlace = async (

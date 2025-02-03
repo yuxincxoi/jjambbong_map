@@ -3,7 +3,7 @@ import User from "../../db/models/User.model";
 import { IUser } from "../../db/interfaces/User.interface";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-import { AuthenticatedRequest } from "../middlewares/auth.middleware";
+import { AuthenticatedRequest } from "../interfaces/middlewares/authRequest.interface";
 
 // 회원정보 수정
 export const updateUser = async (req: AuthenticatedRequest, res: Response) => {
