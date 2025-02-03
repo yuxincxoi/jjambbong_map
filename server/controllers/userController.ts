@@ -1,6 +1,7 @@
 import { Response, RequestHandler } from "express";
 import User from "../../db/models/User.model";
 import { IUser } from "../../db/interfaces/User.interface";
+import { ILikePlace } from "../../db/interfaces/LikePlace.interface";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { AuthenticatedRequest } from "../interfaces/middlewares/authRequest.interface";
@@ -47,7 +48,13 @@ export const updateUser = async (req: AuthenticatedRequest, res: Response) => {
 export const likePlace = async (req: AuthenticatedRequest, res: Response) => {
   try {
     const userId = req.userId;
-    const { likedPlaces } = req.body;
+    const likedPlaces = req.body.likedPlaces as ILikePlace;
+
+    if (!likedPlaces || !likedPlaces.placeName || !likedPlaces.address) {
+      return res.status(400).json({
+        message: "placeName과 address가 필요합니다.",
+      });
+    }
 
     // 사용자 찾기
     const user = await User.findOne({ id: userId });

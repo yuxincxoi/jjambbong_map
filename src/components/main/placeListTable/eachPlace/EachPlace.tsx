@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import EachPlaceProps from "../../../../interfaces/components/main/placeListTable/eachPlace/EachPlace.interface";
+import { ILikePlace } from "../../../../../db/interfaces/LikePlace.interface";
 
 const EachPlace: React.FC<EachPlaceProps> = ({ place, onLikeToggle }) => {
   const heartFull = "url('./img/fullHeart.png')";
@@ -13,11 +14,11 @@ const EachPlace: React.FC<EachPlaceProps> = ({ place, onLikeToggle }) => {
 
   useEffect(() => {
     const fetchLikedPlaces = async () => {
-      const data = await loadLikedPlaces();
+      const data: ILikePlace[] = await loadLikedPlaces();
 
       // 좋아요 상태 확인
       const isLiked = data.some(
-        (likedPlace: { placeName: string; address: string }) =>
+        (likedPlace: ILikePlace) =>
           likedPlace.placeName === place.placeName &&
           likedPlace.address === place.address
       );
