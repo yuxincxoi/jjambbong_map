@@ -1,9 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { decodeToken } from "../utils/jwtUtils";
-
-export interface AuthenticatedRequest extends Request {
-  userId?: string;
-}
+import { AuthenticatedRequest } from "../interfaces/middlewares/authRequest.interface";
 
 export const authenticateUser = (
   req: AuthenticatedRequest,
