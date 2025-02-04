@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-// import TitleProps from "../interfaces/components/Title.interface";
+import TitleProps from "../interfaces/components/Title.interface";
 
-const Title: React.FC = () => {
+const Title: React.FC<TitleProps> = ({ className }) => {
   const [title, setTitle] = useState<JSX.Element | string>("I LIKE 짬뽕");
 
   useEffect(() => {
