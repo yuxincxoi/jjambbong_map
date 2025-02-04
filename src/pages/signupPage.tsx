@@ -160,7 +160,7 @@ export default function SignupPage() {
         onConfirm={createUser}
       />
       <Title />
-      <p className="flex justify-center mt-3 text-[#909090] font-thin">
+      <p className="flex justify-center text-[#909090] font-thin text-2xl">
         Create your Account
       </p>
       <form className="mt-5">
