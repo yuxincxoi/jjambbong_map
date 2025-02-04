@@ -1,3 +1,3 @@
 export default interface TitleProps {
-  // page: string;
+  className?: string;
 }
