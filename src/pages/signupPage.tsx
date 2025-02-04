@@ -213,11 +213,11 @@ export default function SignupPage() {
           className={`w-80 h-9 mt-10 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white ${btnStyle}`}
         />
       </form>
-      <div className="flex justify-start">
+      <div className="flex justify-center">
         <Link to="/">
           <Button
             buttonName="이전으로"
-            className="px-2 py-1 bg-main-color text-white rounded mr-2 hover:border-main-color hover:text-main-color hover:bg-white"
+            className="w-80 h-9 mt-2 px-2 py-1 rounded-md font-medium border-main-color text-main-color bg-white"
           />
         </Link>
       </div>
