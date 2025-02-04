@@ -29,7 +29,7 @@ const Title: React.FC<TitleProps> = ({ className }) => {
     } else {
       newTitle = (
         <>
-          <span className="text-main-color font-extrabold mt-12">
+          <span className={`text-main-color font-extrabold ${className}`}>
             I LIKE 짬뽕
           </span>
         </>
