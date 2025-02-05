@@ -44,7 +44,7 @@ const Nav: React.FC = () => {
     <>
       <div className="fixed bottom-10 right-6 z-50">
         <div
-          className={`w-48 h-72 rounded-lg border border-stone-300 transition-opacity duration-500 ${
+          className={`w-48 h-72 rounded-lg border border-stone-300 bg-white transition-opacity duration-500 ${
             isHidden ? "opacity-0 pointer-events-none" : "opacity-100"
           }`}
           onMouseLeave={handleHover}
