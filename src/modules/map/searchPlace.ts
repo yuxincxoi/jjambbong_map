@@ -63,7 +63,10 @@ export const searchPlace = async (searchValue: string) => {
               content: iwContent,
             });
 
-            // 마커에 mouse over(out) 했을 때 인포윈도우 생성(닫기)
+            // 마커, 인포윈도우 저장
+            markersMap.set(place.place_name, marker);
+            infoWindowsMap.set(place.place_name, InfoWindow);
+
             kakaoMaps.event.addListener(marker, "mouseover", () => {
               InfoWindow.open(currentMap, marker);
             });
