@@ -19,7 +19,7 @@ export default function SignupPage() {
   const [isCloseModalHidden, setIsCloseModalHidden] = useState(true);
   const [isConfirmModalHidden, setIsConfirmModalHidden] = useState(true);
   const [modalMessage, setModalMessage] = useState("");
-  const [btnStyle, setBtnStyle] = useState("");
+  const [btnStyle, setBtnStyle] = useState("bg-sub-color");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function SignupPage() {
       !validateConfirmPassword(password, confirmPassword) ||
       !validateFields(id, name, password, confirmPassword)
     ) {
-      setBtnStyle("bg-[#ffaaaa]");
+      setBtnStyle("bg-sub-color");
     } else {
       setBtnStyle("");
     }
@@ -210,7 +210,7 @@ export default function SignupPage() {
         <Button
           buttonName="Sign up"
           onClick={(e) => handleSubmit(e)}
-          className={`w-80 h-9 mt-10 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white ${btnStyle}`}
+          className={`w-80 h-9 mt-10 px-2 py-1 text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white ${btnStyle}`}
         />
       </form>
       <div className="flex justify-center">

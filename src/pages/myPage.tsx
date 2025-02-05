@@ -27,7 +27,7 @@ export default function MyPage() {
       !validateConfirmPassword(password, confirmPassword) ||
       !validateFields(id, name, password, confirmPassword)
     ) {
-      setBtnStyle("bg-[#ffaaaa]");
+      setBtnStyle("bg-sub-color");
     } else {
       setBtnStyle("");
     }
