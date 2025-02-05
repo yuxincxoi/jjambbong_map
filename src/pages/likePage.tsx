@@ -6,11 +6,15 @@ import Nav from "../components/Nav";
 
 export default function LikePage() {
   return (
-    <div>
+    <>
       <Nav />
-      <Title />
-      <Map />
-      <PlaceListTable />
-    </div>
+      <div className="flex">
+        <div className="w-[25%]">
+          <Title className="mt-4 ml-2 text-start" />
+          <PlaceListTable />
+        </div>
+        <Map />
+      </div>
+    </>
   );
 }
