@@ -1,11 +1,15 @@
 import { loadMap } from "./loadMap";
 import Place from "../../interfaces/components/main/placeListTable/Place.interface";
 
+const markersMap = new Map();
+const infoWindowsMap = new Map();
+let currentMap: kakao.maps.Map;
+
 export const searchPlace = async (searchValue: string) => {
   try {
     const kakaoMaps = await loadMap();
     // 지도 설정
-    const map = new kakaoMaps.Map(
+    currentMap = new kakaoMaps.Map(
       document.getElementById("map") as HTMLElement,
       {
         center: new kakaoMaps.LatLng(37.5665, 126.978), // 좌표 : 서울
@@ -34,7 +38,7 @@ export const searchPlace = async (searchValue: string) => {
             );
             // 장소에 마커 생성
             const marker = new kakaoMaps.Marker({
-              map: map, // 마커를 표시할 지도
+              map: currentMap, // 마커를 표시할 지도
               position: coords, // 마커의 좌표
               clickable: true, // 마커를 클릭 시 지도의 클릭이벤트 발생하지 않도록 설정
             });
@@ -54,7 +58,7 @@ export const searchPlace = async (searchValue: string) => {
 
             // 마커에 mouse over(out) 했을 때 인포윈도우 생성(닫기)
             kakaoMaps.event.addListener(marker, "mouseover", () => {
-              InfoWindow.open(map, marker);
+              InfoWindow.open(currentMap, marker);
             });
             kakaoMaps.event.addListener(marker, "mouseout", () => {
               InfoWindow.close();
@@ -64,7 +68,7 @@ export const searchPlace = async (searchValue: string) => {
             bounds.extend(coords);
           });
           // 지도 표시 범위 재설정
-          map.setBounds(bounds);
+          currentMap.setBounds(bounds);
           resolve(formattedResult);
         } else {
           reject("검색 결과가 없습니다.");
