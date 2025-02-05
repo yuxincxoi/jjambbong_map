@@ -44,7 +44,7 @@ const EachPlace: React.FC<EachPlaceProps> = ({ place, onLikeToggle }) => {
 
   return (
     <>
-      <div className="bg-white w-[99%] m-1 flex justify-between">
+      <div className="bg-white w-[97%] m-1 flex justify-between">
         <div className="px-5 py-2">
           <div className="text-xl font-semibold">{place.placeName}</div>
           <div>{place.address}</div>

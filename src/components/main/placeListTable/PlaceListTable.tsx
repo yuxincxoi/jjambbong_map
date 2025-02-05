@@ -46,8 +46,8 @@ const PlaceListTable = () => {
   return (
     <>
       <InputSearch onSearch={handleSearch} />
-      <div className="flex justify-center mt-6">
-        <div className="bg-[#F8F8F8] w-[40%]">
+      <div className="flex justify-center mt-4">
+        <div className="bg-[#F8F8F8] w-full">
           {places.length > 0 ? (
             places.map((place) => (
               <EachPlace
