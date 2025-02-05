@@ -1,9 +1,9 @@
 import { loadMap } from "./loadMap";
 import Place from "../../interfaces/components/main/placeListTable/Place.interface";
 
-const markersMap = new Map();
-const infoWindowsMap = new Map();
-let currentMap: kakao.maps.Map;
+export const markersMap = new Map();
+export const infoWindowsMap = new Map();
+export let currentMap: kakao.maps.Map;
 
 export const searchPlace = async (searchValue: string) => {
   try {
