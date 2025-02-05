@@ -4,5 +4,6 @@
 @layer base {
   :root {
     --main-color: #d70000;
+    --sub-color: #ffaaaa;
   }
 }

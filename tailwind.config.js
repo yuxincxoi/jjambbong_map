@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       colors: {
         "main-color": "var(--main-color)",
+        "sub-color": "var(--sub-color)",
       },
     },
   },
