@@ -6,7 +6,6 @@ const Map = () => {
     const initializeMap = async () => {
       try {
         const maps = await loadMap();
-        console.log("Map initialized successfully");
       } catch (error) {
         console.error("Map initialization failed:", error);
       }

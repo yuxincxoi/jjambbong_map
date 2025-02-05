@@ -20,11 +20,9 @@ const testDatabase = async () => {
 
     // 데이터 저장
     const savedUser = await newUser.save();
-    console.log("저장된 사용자:", savedUser);
 
     // 데이터 조회
     const users = await User.find();
-    console.log("모든 사용자:", users);
 
     // 데이터베이스 종료
     process.exit(0);
