@@ -4,6 +4,7 @@ import Place from "../../../interfaces/components/main/placeListTable/Place.inte
 import { ILikePlace } from "../../../../db/interfaces/LikePlace.interface";
 import InputSearch from "../InputSearch";
 import { searchPlace } from "../../../modules/map/searchPlace";
+import { openInfoWindow } from "../../../modules/map/openInfoWindow";
 import { loadLikedPlaces } from "../../../modules/api/loadLikedPlaces";
 
 const PlaceListTable = () => {
@@ -52,6 +53,10 @@ const PlaceListTable = () => {
     }
   };
 
+  const handlePlaceClick = (placeName: string) => {
+    openInfoWindow(placeName);
+  };
+
   return (
     <>
       <InputSearch onSearch={handleSearch} />
@@ -59,11 +64,13 @@ const PlaceListTable = () => {
         <div className="bg-[#F8F8F8] w-full">
           {places.length > 0 ? (
             places.map((place) => (
-              <EachPlace
+              <div
                 key={place.placeName}
-                place={place}
-                onLikeToggle={handleLikeToggle}
-              />
+                onClick={() => handlePlaceClick(place.placeName)}
+                className="cursor-pointer"
+              >
+                <EachPlace place={place} onLikeToggle={handleLikeToggle} />
+              </div>
             ))
           ) : (
             <p className="text-center py-4">검색된 장소가 없습니다</p>
