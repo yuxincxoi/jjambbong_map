@@ -47,7 +47,7 @@ function IndexPage() {
           name="id"
           value={id}
           onChange={(e) => setId(e.target.value)}
-          firstclassName="w-60 mb-3"
+          firstclassName="w-60 mb-5"
         />
         <Input
           type="password"
