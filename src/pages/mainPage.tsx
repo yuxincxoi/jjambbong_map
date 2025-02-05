@@ -7,9 +7,13 @@ const MainPage: React.FC = () => {
   return (
     <>
       <Nav />
-      <Title />
-      <Map />
-      <PlaceListTable />
+      <div className="flex">
+        <div className="w-[25%]">
+          <Title className="mt-4 ml-2 text-start" />
+          <PlaceListTable />
+        </div>
+        <Map />
+      </div>
     </>
   );
 };
