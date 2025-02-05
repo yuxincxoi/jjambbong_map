@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import EachPlaceProps from "../../../../interfaces/components/main/placeListTable/eachPlace/EachPlace.interface";
 import { ILikePlace } from "../../../../../db/interfaces/LikePlace.interface";
+import { loadLikedPlaces } from "../../../../modules/api/loadLikedPlaces";
 
 const EachPlace: React.FC<EachPlaceProps> = ({ place, onLikeToggle }) => {
   const heartFull = "url('./img/fullHeart.png')";
@@ -27,20 +28,6 @@ const EachPlace: React.FC<EachPlaceProps> = ({ place, onLikeToggle }) => {
     };
     fetchLikedPlaces();
   }, []);
-
-  const loadLikedPlaces = async () => {
-    try {
-      const response = await fetch("/api/likes", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      return await response.json();
-    } catch (error) {
-      console.error("Error fetching liked places:", error);
-    }
-  };
 
   return (
     <>
