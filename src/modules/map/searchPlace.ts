@@ -19,14 +19,14 @@ export const searchPlace = async (searchValue: string) => {
 
     return new Promise<Place[]>((resolve, reject) => {
       // 검색어로 장소 검색
-      places.keywordSearch(searchValue, (result: any, status: any) => {
-        const formattedResult: Place[] = result.map((place: any) => ({
+      places.keywordSearch(searchValue, (result, status) => {
+        const formattedResult: Place[] = result.map((place) => ({
           placeName: place.place_name,
           address: place.address_name,
         }));
 
         if (status === kakaoMaps.services.Status.OK) {
-          result.forEach((place: any) => {
+          result.forEach((place) => {
             // 장소의 좌표 생성
             const coords = new kakaoMaps.LatLng(
               Number(place.y),
