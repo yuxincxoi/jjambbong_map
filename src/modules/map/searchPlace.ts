@@ -16,6 +16,13 @@ export const searchPlace = async (searchValue: string) => {
         level: 3, // 지도 확대 레벨
       }
     );
+
+    // 마커, 인포윈도우 초기화
+    markersMap.forEach((marker) => marker.setMap(null));
+    infoWindowsMap.forEach((infoWindow) => infoWindow.close());
+    markersMap.clear();
+    infoWindowsMap.clear();
+
     const places = new kakaoMaps.services.Places();
 
     // 지도 표시 범위 관리하는 객체 생성
