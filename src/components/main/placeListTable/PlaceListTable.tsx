@@ -10,6 +10,7 @@ import { loadLikedPlaces } from "../../../modules/api/loadLikedPlaces";
 const PlaceListTable = () => {
   const [places, setPlaces] = useState<Place[]>([]);
   const [likedPlaces, setLikedPlaces] = useState<ILikePlace[]>([]);
+  const [clickedPlace, setClickedPlace] = useState<string | null>();
 
   useEffect(() => {
     handleSearch("대전 짬뽕");
@@ -55,6 +56,7 @@ const PlaceListTable = () => {
 
   const handlePlaceClick = (placeName: string) => {
     openInfoWindow(placeName);
+    setClickedPlace(placeName);
   };
 
   return (
@@ -69,7 +71,11 @@ const PlaceListTable = () => {
                 onClick={() => handlePlaceClick(place.placeName)}
                 className="cursor-pointer"
               >
-                <EachPlace place={place} onLikeToggle={handleLikeToggle} />
+                <EachPlace
+                  place={place}
+                  onLikeToggle={handleLikeToggle}
+                  isClicked={clickedPlace === place.placeName}
+                />
               </div>
             ))
           ) : (

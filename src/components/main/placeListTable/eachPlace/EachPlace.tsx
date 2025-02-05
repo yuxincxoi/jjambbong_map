@@ -3,7 +3,11 @@ import EachPlaceProps from "../../../../interfaces/components/main/placeListTabl
 import { ILikePlace } from "../../../../../db/interfaces/LikePlace.interface";
 import { loadLikedPlaces } from "../../../../modules/api/loadLikedPlaces";
 
-const EachPlace: React.FC<EachPlaceProps> = ({ place, onLikeToggle }) => {
+const EachPlace: React.FC<EachPlaceProps> = ({
+  place,
+  onLikeToggle,
+  isClicked,
+}) => {
   const heartFull = "url('./img/fullHeart.png')";
   const heartEmpty = "url('./img/emptyHeart.png')";
   const [isHeartOn, setIsHeartOn] = useState(false);
@@ -31,7 +35,11 @@ const EachPlace: React.FC<EachPlaceProps> = ({ place, onLikeToggle }) => {
 
   return (
     <>
-      <div className="bg-white w-[97%] m-1 flex justify-between">
+      <div
+        className={`w-[97%] m-1 flex justify-between ${
+          isClicked ? "bg-red-100" : "bg-white"
+        }`}
+      >
         <div className="px-5 py-2">
           <div className="text-xl font-semibold">{place.placeName}</div>
           <div>{place.address}</div>
