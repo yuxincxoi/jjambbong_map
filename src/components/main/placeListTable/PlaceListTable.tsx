@@ -4,6 +4,7 @@ import Place from "../../../interfaces/components/main/placeListTable/Place.inte
 import { ILikePlace } from "../../../../db/interfaces/LikePlace.interface";
 import InputSearch from "../InputSearch";
 import { searchPlace } from "../../../modules/map/searchPlace";
+import { loadLikedPlaces } from "../../../modules/api/loadLikedPlaces";
 
 const PlaceListTable = () => {
   const [places, setPlaces] = useState<Place[]>([]);
@@ -15,9 +16,17 @@ const PlaceListTable = () => {
 
   const handleSearch = async (searchValue: string) => {
     try {
-      setPlaces([]);
-      const result = await searchPlace(searchValue);
-      setPlaces(result || []);
+      const page = window.location.pathname.split("/").pop();
+
+      if (page === "mainPage") {
+        setPlaces([]);
+        const result = await searchPlace(searchValue);
+        setPlaces(result || []);
+      } else if (page === "likePage") {
+        setPlaces([]);
+        const result = await loadLikedPlaces();
+        setPlaces(result);
+      }
     } catch (error) {
       console.error(error);
       setPlaces([]);
