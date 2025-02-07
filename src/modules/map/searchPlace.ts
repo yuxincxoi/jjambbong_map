@@ -5,6 +5,8 @@ export const markersMap = new Map();
 export const infoWindowsMap = new Map();
 export let currentMap: kakao.maps.Map;
 
+let isClicked = false;
+
 // 상태를 초기화하는 콜백을 저장할 변수
 let resetClickedState: (() => void) | null;
 
@@ -78,7 +80,9 @@ export const searchPlace = async (searchValue: string) => {
               InfoWindow.open(currentMap, marker);
             });
             kakaoMaps.event.addListener(marker, "mouseout", () => {
-              InfoWindow.close();
+              if (!isClicked) {
+                InfoWindow.close();
+              }
             });
 
             // 장소를 지도에 표시하도록 범위 확장
