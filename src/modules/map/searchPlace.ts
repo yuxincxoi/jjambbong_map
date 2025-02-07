@@ -8,6 +8,10 @@ export let currentMap: kakao.maps.Map;
 // 상태를 초기화하는 콜백을 저장할 변수
 let resetClickedState: (() => void) | null;
 
+export const setResetClickedState = (callback: () => void) => {
+  resetClickedState = callback;
+};
+
 export const searchPlace = async (searchValue: string) => {
   try {
     const kakaoMaps = await loadMap();

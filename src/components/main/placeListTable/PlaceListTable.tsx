@@ -3,7 +3,10 @@ import EachPlace from "./eachPlace/EachPlace";
 import Place from "../../../interfaces/components/main/placeListTable/Place.interface";
 import { ILikePlace } from "../../../../db/interfaces/LikePlace.interface";
 import InputSearch from "../InputSearch";
-import { searchPlace } from "../../../modules/map/searchPlace";
+import {
+  searchPlace,
+  setResetClickedState,
+} from "../../../modules/map/searchPlace";
 import { openInfoWindow } from "../../../modules/map/openInfoWindow";
 import { loadLikedPlaces } from "../../../modules/api/loadLikedPlaces";
 
@@ -58,6 +61,8 @@ const PlaceListTable = () => {
     openInfoWindow(placeName);
     setClickedPlace(placeName);
   };
+
+  setResetClickedState(() => setClickedPlace(null));
 
   return (
     <>
