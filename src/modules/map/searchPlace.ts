@@ -79,6 +79,14 @@ export const searchPlace = async (searchValue: string) => {
           });
           // 지도 표시 범위 재설정
           currentMap.setBounds(bounds);
+
+          // 지도 클릭 시 모든 열린 인포윈도우를 닫기
+          kakaoMaps.event.addListener(currentMap, "click", () => {
+            infoWindowsMap.forEach((infoWindow) => {
+              infoWindow.close();
+            });
+          });
+
           resolve(formattedResult);
         } else {
           reject("검색 결과가 없습니다.");
