@@ -76,13 +76,30 @@ export const searchPlace = async (searchValue: string) => {
             markersMap.set(place.place_name, marker);
             infoWindowsMap.set(place.place_name, InfoWindow);
 
+            // 마커 이벤트
             kakaoMaps.event.addListener(marker, "mouseover", () => {
+              isClicked = false;
               InfoWindow.open(currentMap, marker);
             });
             kakaoMaps.event.addListener(marker, "mouseout", () => {
               if (!isClicked) {
                 InfoWindow.close();
               }
+            });
+            kakaoMaps.event.addListener(marker, "click", () => {
+              infoWindowsMap.forEach((infoWindow) => {
+                infoWindow.close();
+              });
+              isClicked = true;
+              InfoWindow.open(currentMap, marker);
+
+              // 클릭 후 마우스 이벤트를 막을 수 있도록 처리
+              kakaoMaps.event.addListener(currentMap, "click", () => {
+                isClicked = false;
+                infoWindowsMap.forEach((infoWindow) => {
+                  infoWindow.close();
+                });
+              });
             });
 
             // 장소를 지도에 표시하도록 범위 확장
