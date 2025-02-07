@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import EachPlace from "./eachPlace/EachPlace";
 import Place from "../../../interfaces/components/main/placeListTable/Place.interface";
+import { PlaceListTableProps } from "../../../interfaces/components/main/placeListTable/PlaceListTable.interface";
 import { ILikePlace } from "../../../../db/interfaces/LikePlace.interface";
 import InputSearch from "../InputSearch";
 import {
@@ -9,10 +10,6 @@ import {
 } from "../../../modules/map/searchPlace";
 import { openInfoWindow } from "../../../modules/map/openInfoWindow";
 import { loadLikedPlaces } from "../../../modules/api/loadLikedPlaces";
-
-interface PlaceListTableProps {
-  disabled: boolean;
-}
 
 const PlaceListTable: React.FC<PlaceListTableProps> = ({ disabled }) => {
   const [places, setPlaces] = useState<Place[]>([]);
