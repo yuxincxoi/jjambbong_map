@@ -37,7 +37,7 @@ const EachPlace: React.FC<EachPlaceProps> = ({
   return (
     <>
       <div
-        className={`mb-[1px] flex justify-between ${
+        className={`mb-[1px] flex justify-between hover:bg-red-50 ${
           isClicked ? "bg-red-100" : "bg-white"
         }`}
         onClick={() => onClick?.(place.placeName)}
