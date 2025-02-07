@@ -36,7 +36,7 @@ const EachPlace: React.FC<EachPlaceProps> = ({
   return (
     <>
       <div
-        className={`w-[97%] m-1 flex justify-between ${
+        className={`mb-[1px] flex justify-between ${
           isClicked ? "bg-red-100" : "bg-white"
         }`}
       >
