@@ -92,6 +92,10 @@ export const searchPlace = async (searchValue: string) => {
             infoWindowsMap.forEach((infoWindow) => {
               infoWindow.close();
             });
+
+            if (resetClickedState) {
+              resetClickedState(); // isClicked 상태 초기화
+            }
           });
 
           resolve(formattedResult);
