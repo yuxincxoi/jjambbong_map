@@ -10,7 +10,11 @@ import {
 import { openInfoWindow } from "../../../modules/map/openInfoWindow";
 import { loadLikedPlaces } from "../../../modules/api/loadLikedPlaces";
 
-const PlaceListTable = () => {
+interface PlaceListTableProps {
+  disabled: boolean;
+}
+
+const PlaceListTable: React.FC<PlaceListTableProps> = ({ disabled }) => {
   const [places, setPlaces] = useState<Place[]>([]);
   const [likedPlaces, setLikedPlaces] = useState<ILikePlace[]>([]);
   const [clickedPlace, setClickedPlace] = useState<string | null>();
@@ -66,7 +70,7 @@ const PlaceListTable = () => {
 
   return (
     <>
-      <InputSearch onSearch={handleSearch} />
+      <InputSearch onSearch={handleSearch} disabled={disabled} />
       <div className="flex justify-center mt-4">
         <div className="bg-[#e6e6e6] w-full">
           {places.length > 0 ? (

@@ -10,7 +10,7 @@ const MainPage: React.FC = () => {
       <div className="flex">
         <div className="w-[25%]">
           <Title className="mt-4 ml-2 text-start" />
-          <PlaceListTable />
+          <PlaceListTable disabled={false} />
         </div>
         <Map />
       </div>
