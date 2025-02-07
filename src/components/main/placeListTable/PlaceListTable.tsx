@@ -71,6 +71,7 @@ const PlaceListTable = () => {
                   place={place}
                   onLikeToggle={handleLikeToggle}
                   isClicked={clickedPlace === place.placeName}
+                  onClick={handlePlaceClick}
                 />
               </div>
             ))

@@ -7,6 +7,7 @@ const EachPlace: React.FC<EachPlaceProps> = ({
   place,
   onLikeToggle,
   isClicked,
+  onClick,
 }) => {
   const heartFull = "url('./img/fullHeart.png')";
   const heartEmpty = "url('./img/emptyHeart.png')";
@@ -39,6 +40,7 @@ const EachPlace: React.FC<EachPlaceProps> = ({
         className={`mb-[1px] flex justify-between ${
           isClicked ? "bg-red-100" : "bg-white"
         }`}
+        onClick={() => onClick?.(place.placeName)}
       >
         <div className="px-5 py-2">
           <div className="text-xl font-semibold">{place.placeName}</div>

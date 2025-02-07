@@ -4,4 +4,5 @@ export default interface EachPlaceProps {
   place: Place;
   isClicked: boolean;
   onLikeToggle: (place: Place, isHeartOn: boolean) => void;
+  onClick?: (placeName: string) => void;
 }
