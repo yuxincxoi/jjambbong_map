@@ -66,11 +66,7 @@ const PlaceListTable = () => {
         <div className="bg-[#e6e6e6] w-full">
           {places.length > 0 ? (
             places.map((place) => (
-              <div
-                key={place.placeName}
-                onClick={() => handlePlaceClick(place.placeName)}
-                className="cursor-pointer"
-              >
+              <div key={place.placeName} className="cursor-pointer">
                 <EachPlace
                   place={place}
                   onLikeToggle={handleLikeToggle}
