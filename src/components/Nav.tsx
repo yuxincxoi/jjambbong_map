@@ -42,7 +42,8 @@ const Nav: React.FC = () => {
 
   return (
     <>
-      <div className="fixed bottom-10 right-6 z-50">
+      {/* PC */}
+      <div className="hidden lg:block fixed bottom-10 right-6 z-50">
         <div
           className={`w-48 h-72 rounded-lg border border-stone-300 bg-white transition-opacity duration-500 ${
             isHidden ? "opacity-0 pointer-events-none" : "opacity-100"
@@ -113,6 +114,65 @@ const Nav: React.FC = () => {
           onMouseEnter={handleHover}
           onMouseLeave={handleHover}
         ></div>
+      </div>
+
+      {/* 모바일 */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-stone-300 z-50">
+        <div className="flex justify-around items-center py-3">
+          <Link to="/mainPage">
+            <div className="flex flex-col items-center">
+              <div
+                className="w-6 h-6 bg-cover bg-no-repeat"
+                style={{ backgroundImage: homeBtn }}
+              ></div>
+              <span
+                className={`text-sm mt-1 ${
+                  page === "mainPage" ? "font-normal" : "font-thin"
+                }`}
+              >
+                Home
+              </span>
+            </div>
+          </Link>
+          <Link to="/likePage">
+            <div className="flex flex-col items-center">
+              <div
+                className="w-6 h-6 bg-cover bg-no-repeat"
+                style={{ backgroundImage: likePageBtn }}
+              ></div>
+              <span
+                className={`text-sm mt-1 ${
+                  page === "likePage" ? "font-normal" : "font-thin"
+                }`}
+              >
+                Like
+              </span>
+            </div>
+          </Link>
+          <Link to="/myPage">
+            <div className="flex flex-col items-center">
+              <div
+                className="w-6 h-6 bg-cover bg-no-repeat"
+                style={{ backgroundImage: myPageBtn }}
+              ></div>
+              <span
+                className={`text-sm mt-1 ${
+                  page === "myPage" ? "font-normal" : "font-thin"
+                }`}
+              >
+                My page
+              </span>
+            </div>
+          </Link>
+          <Link to="/">
+            <div className="flex flex-col items-center" onClick={handleLogout}>
+              <div className="w-6 h-6 flex items-center justify-center">
+                <span className="text-lg">⇥</span>
+              </div>
+              <span className="text-sm mt-1 text-[#A6A6A6]">로그아웃</span>
+            </div>
+          </Link>
+        </div>
       </div>
     </>
   );
