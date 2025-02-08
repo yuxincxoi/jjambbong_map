@@ -7,12 +7,14 @@ const MainPage: React.FC = () => {
   return (
     <>
       <Nav />
-      <div className="flex">
-        <div className="w-[25%]">
+      <div className="flex flex-col-reverse lg:flex-row">
+        <div className="w-full lg:w-[25%]">
           <Title className="mt-4 ml-2 text-start" />
           <PlaceListTable disabled={false} />
         </div>
-        <Map />
+        <div className="h-[300px] lg:h-auto lg:flex-1">
+          <Map />
+        </div>
       </div>
     </>
   );

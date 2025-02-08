@@ -14,9 +14,7 @@ const Map = () => {
     initializeMap();
   }, []);
 
-  return (
-    <div id="map" className="bg-black w-[75%] h-screen right-0 fixed"></div>
-  );
+  return <div id="map" className="w-full h-full"></div>;
 };
 
 export default Map;

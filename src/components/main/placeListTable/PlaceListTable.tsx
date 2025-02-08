@@ -71,7 +71,7 @@ const PlaceListTable: React.FC<PlaceListTableProps> = ({ disabled }) => {
     <>
       <InputSearch onSearch={handleSearch} disabled={disabled} />
       <div className="flex justify-center mt-4">
-        <div className="bg-[#e6e6e6] w-full">
+        <div className="bg-[#e6e6e6] w-full h-[400px] lg:h-[calc(100vh-120px)] overflow-y-auto">
           {places.length > 0 ? (
             places.map((place) => (
               <div key={place.placeName} className="cursor-pointer">
