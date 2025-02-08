@@ -29,10 +29,12 @@ const PlaceListTable: React.FC<PlaceListTableProps> = ({ disabled }) => {
         setPlaces([]);
         const result = await searchPlace(searchValue);
         setPlaces(result || []);
+        setClassName("");
       } else if (page === "likePage") {
         setPlaces([]);
         const result = await loadLikedPlaces();
         setPlaces(result);
+        setClassName("hidden lg:block");
       }
     } catch (error) {
       console.error(error);
