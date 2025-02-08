@@ -121,7 +121,7 @@ export const searchPlace = async (searchValue: string) => {
             });
 
             if (resetClickedState) {
-              resetClickedState(); // isClicked 상태 초기화
+              resetClickedState(null); // isClicked 상태 초기화
             }
           });
 
