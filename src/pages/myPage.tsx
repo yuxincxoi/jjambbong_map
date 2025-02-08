@@ -27,7 +27,7 @@ export default function MyPage() {
       !validateConfirmPassword(password, confirmPassword) ||
       !validateFields(id, name, password, confirmPassword)
     ) {
-      setBtnStyle("bg-sub-color");
+      setBtnStyle("bg-sub-color hover:text-sub-color");
     } else {
       setBtnStyle("");
     }
@@ -185,7 +185,7 @@ export default function MyPage() {
         <Button
           buttonName="Save"
           onClick={handleSubmit}
-          className={`w-80 h-9 mt-10 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:text-main-color hover:bg-white ${btnStyle}`}
+          className={`w-80 h-9 mt-10 px-2 py-1 bg-main-color text-white rounded-md hover:border-main-color hover:bg-white hover:text-main-color ${btnStyle}`}
         />
       </form>
     </div>
