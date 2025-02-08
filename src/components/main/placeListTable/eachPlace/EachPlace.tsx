@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import EachPlaceProps from "../../../../interfaces/components/main/placeListTable/eachPlace/EachPlace.interface";
 import { ILikePlace } from "../../../../../db/interfaces/LikePlace.interface";
 import { loadLikedPlaces } from "../../../../modules/api/loadLikedPlaces";
@@ -12,6 +12,7 @@ const EachPlace: React.FC<EachPlaceProps> = ({
   const heartFull = "url('./img/fullHeart.png')";
   const heartEmpty = "url('./img/emptyHeart.png')";
   const [isHeartOn, setIsHeartOn] = useState(false);
+  const placeRef = useRef<HTMLDivElement>(null);
 
   const handleHeartClick = () => {
     setIsHeartOn((prev) => !prev);
@@ -34,9 +35,16 @@ const EachPlace: React.FC<EachPlaceProps> = ({
     fetchLikedPlaces();
   }, []);
 
+  useEffect(() => {
+    if (isClicked && placeRef.current) {
+      placeRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }, [isClicked]);
+
   return (
     <>
       <div
+        ref={placeRef}
         className={`mb-[1px] flex justify-between hover:bg-red-50 ${
           isClicked ? "bg-red-100" : "bg-white"
         }`}
