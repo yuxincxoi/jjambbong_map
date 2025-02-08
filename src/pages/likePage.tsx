@@ -10,7 +10,7 @@ export default function LikePage() {
       <Nav />
       <div className="flex flex-col-reverse lg:flex-row">
         <div className="w-full lg:w-[25%]">
-          <Title className="mt-4 ml-2 text-start" />
+          <Title className="mt-4 ml-2 text-start hidden lg:block" />
           <PlaceListTable disabled={true} />
         </div>
         <div className="h-[300px] lg:h-auto lg:flex-1">
