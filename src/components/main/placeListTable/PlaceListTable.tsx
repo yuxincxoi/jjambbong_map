@@ -11,7 +11,10 @@ import {
 import { openInfoWindow } from "../../../modules/map/openInfoWindow";
 import { loadLikedPlaces } from "../../../modules/api/loadLikedPlaces";
 
-const PlaceListTable: React.FC<PlaceListTableProps> = ({ disabled }) => {
+const PlaceListTable: React.FC<PlaceListTableProps> = ({
+  disabled,
+  isVisible,
+}) => {
   const [places, setPlaces] = useState<Place[]>([]);
   const [likedPlaces, setLikedPlaces] = useState<ILikePlace[]>([]);
   const [clickedPlace, setClickedPlace] = useState<string | null>();
