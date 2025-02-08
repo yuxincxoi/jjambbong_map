@@ -1,7 +1,7 @@
 import { useState } from "react";
 import InputSearchProps from "../../interfaces/components/main/InputSearch.interface";
 
-const InputSearch = ({ onSearch, disabled }: InputSearchProps) => {
+const InputSearch = ({ onSearch, disabled, className }: InputSearchProps) => {
   const [searchKeyword, setSearchKeyword] = useState("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,7 +24,7 @@ const InputSearch = ({ onSearch, disabled }: InputSearchProps) => {
           disabled={disabled}
           onChange={handleInputChange}
           onKeyDown={handleKeyPress}
-          className="w-full lg:w-[95%] h-10 border-2 px-4 rounded-2xl hover:border-main-color focus:outline-none focus:border-main-color transition duration-200 disabled:bg-gray-50 disabled:text-gray-400 disabled:border-gray-200 disabled:cursor-not-allowed disabled:opacity-75 focus:disabled:ring-0 focus:disabled:border-gray-200"
+          className={`w-full lg:w-[95%] h-10 border-2 px-4 rounded-2xl hover:border-main-color focus:outline-none focus:border-main-color transition duration-200 disabled:bg-gray-50 disabled:text-gray-400 disabled:border-gray-200 disabled:cursor-not-allowed disabled:opacity-75 focus:disabled:ring-0 focus:disabled:border-gray-200 ${className}`}
         />
       </div>
     </>

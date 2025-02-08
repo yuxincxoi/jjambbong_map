@@ -15,6 +15,7 @@ const PlaceListTable: React.FC<PlaceListTableProps> = ({ disabled }) => {
   const [places, setPlaces] = useState<Place[]>([]);
   const [likedPlaces, setLikedPlaces] = useState<ILikePlace[]>([]);
   const [clickedPlace, setClickedPlace] = useState<string | null>();
+  const [className, setClassName] = useState<string>("");
 
   useEffect(() => {
     handleSearch("대전 짬뽕");
@@ -69,7 +70,11 @@ const PlaceListTable: React.FC<PlaceListTableProps> = ({ disabled }) => {
 
   return (
     <>
-      <InputSearch onSearch={handleSearch} disabled={disabled} />
+      <InputSearch
+        onSearch={handleSearch}
+        disabled={disabled}
+        className={className}
+      />
       <div className="flex justify-center mt-4">
         <div className="bg-[#e6e6e6] w-full h-[400px] lg:h-[calc(100vh-120px)] overflow-y-auto">
           {places.length > 0 ? (
