@@ -8,9 +8,11 @@ export let currentMap: kakao.maps.Map;
 let isClicked = false;
 
 // 상태를 초기화하는 콜백을 저장할 변수
-let resetClickedState: (() => void) | null;
+let resetClickedState: ((placeName: string | null) => void) | null;
 
-export const setResetClickedState = (callback: () => void) => {
+export const setResetClickedState = (
+  callback: (placeName: string | null) => void
+) => {
   resetClickedState = callback;
 };
 
@@ -92,6 +94,10 @@ export const searchPlace = async (searchValue: string) => {
               });
               isClicked = true;
               InfoWindow.open(currentMap, marker);
+
+              if (resetClickedState) {
+                resetClickedState(place.place_name);
+              }
 
               // 클릭 후 마우스 이벤트를 막을 수 있도록 처리
               kakaoMaps.event.addListener(currentMap, "click", () => {
