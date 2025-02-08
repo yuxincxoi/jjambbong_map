@@ -1,19 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import Title from "../components/Title";
 import Map from "../components/main/Map";
 import PlaceListTable from "../components/main/placeListTable/PlaceListTable";
 import Nav from "../components/Nav";
+import NavToggle from "../components/NavToggle";
 
 export default function LikePage() {
+  const [isNavVisible, setIsNavVisible] = useState(true);
+
+  const toggleNav = () => {
+    setIsNavVisible((prev) => !prev);
+  };
+
   return (
     <>
       <Nav />
       <div className="flex flex-col-reverse lg:flex-row">
         <div className="w-full lg:w-[25%]">
+          <NavToggle onToggle={toggleNav} />
           <Title className="mt-4 ml-2 text-start hidden lg:block" />
-          <PlaceListTable disabled={true} />
+          <PlaceListTable disabled={true} isVisible={isNavVisible} />
         </div>
-        <div className="h-[300px] lg:h-auto lg:flex-1">
+        <div
+          className={`transition-all duration-300 lg:flex-1 ${
+            isNavVisible
+              ? "h-[300px] lg:h-auto"
+              : "h-[calc(100vh-80px)] lg:h-auto"
+          }`}
+        >
           <Map />
         </div>
       </div>
