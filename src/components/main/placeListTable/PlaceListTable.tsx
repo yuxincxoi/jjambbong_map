@@ -63,7 +63,9 @@ const PlaceListTable: React.FC<PlaceListTableProps> = ({ disabled }) => {
     setClickedPlace(placeName);
   };
 
-  setResetClickedState(() => setClickedPlace(null));
+  setResetClickedState((placeName: string | null) =>
+    setClickedPlace(placeName)
+  );
 
   return (
     <>
