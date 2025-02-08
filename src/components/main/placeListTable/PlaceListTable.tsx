@@ -75,27 +75,29 @@ const PlaceListTable: React.FC<PlaceListTableProps> = ({
 
   return (
     <>
-      <InputSearch
-        onSearch={handleSearch}
-        disabled={disabled}
-        className={className}
-      />
-      <div className="flex justify-center mt-4">
-        <div className="bg-[#e6e6e6] w-full h-[400px] lg:h-[calc(100vh-120px)] overflow-y-auto">
-          {places.length > 0 ? (
-            places.map((place) => (
-              <div key={place.placeName} className="cursor-pointer">
-                <EachPlace
-                  place={place}
-                  onLikeToggle={handleLikeToggle}
-                  isClicked={clickedPlace === place.placeName}
-                  onClick={handlePlaceClick}
-                />
-              </div>
-            ))
-          ) : (
-            <p className="text-center py-4">검색된 장소가 없습니다</p>
-          )}
+      <div className={isVisible ? "translate-y-0" : "translate-y-full"}>
+        <InputSearch
+          onSearch={handleSearch}
+          disabled={disabled}
+          className={className}
+        />
+        <div className="flex justify-center mt-4">
+          <div className="bg-[#e6e6e6] w-full h-[400px] lg:h-[calc(100vh-120px)] overflow-y-auto">
+            {places.length > 0 ? (
+              places.map((place) => (
+                <div key={place.placeName} className="cursor-pointer">
+                  <EachPlace
+                    place={place}
+                    onLikeToggle={handleLikeToggle}
+                    isClicked={clickedPlace === place.placeName}
+                    onClick={handlePlaceClick}
+                  />
+                </div>
+              ))
+            ) : (
+              <p className="text-center py-4">검색된 장소가 없습니다</p>
+            )}
+          </div>
         </div>
       </div>
     </>
