@@ -16,7 +16,7 @@ const InputSearch = ({ onSearch, disabled, className }: InputSearchProps) => {
 
   return (
     <>
-      <div className="flex justify-center mt-3 px-2 lg:px-0">
+      <div className="flex justify-center mt-4 px-2 lg:px-0">
         <input
           type="text"
           placeholder="대전 짬뽕"
