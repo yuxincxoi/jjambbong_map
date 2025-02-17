@@ -10,11 +10,15 @@ const NavToggle: React.FC<NavToggleProps> = ({ onToggle, isNavVisible }) => {
         isNavVisible ? "" : "absolute bottom-24 left-1/2 -translate-x-1/2"
       }`}
     >
-      <div
-        onClick={onToggle}
-        className="bg-white px-4 py-3 rounded-t-lg border-[1px] border-b-0 text-gray-700 hover:bg-gray-50 cursor-pointer"
-        style={{ backgroundImage: isNavVisible ? downArrow : upArrow }}
-      ></div>
+      <div className="bg-white hover:bg-gray-50 border-[1px] w-7 h-7 rounded-md">
+        <div
+          onClick={onToggle}
+          className={`w-5 h-5 flex ml-[3px] bg-contain bg-no-repeat cursor-pointer ${
+            isNavVisible ? "mt-2" : "mt-[7px]"
+          }`}
+          style={{ backgroundImage: isNavVisible ? downArrow : upArrow }}
+        ></div>
+      </div>
     </div>
   );
 };
