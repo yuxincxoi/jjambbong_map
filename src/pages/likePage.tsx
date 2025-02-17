@@ -21,13 +21,7 @@ export default function LikePage() {
           <Title className="mt-4 ml-2 text-start hidden lg:block" />
           <PlaceListTable disabled={true} isVisible={isNavVisible} />
         </div>
-        <div
-          className={`transition-all duration-300 lg:flex-1 ${
-            isNavVisible
-              ? "h-[300px] lg:h-auto"
-              : "h-[calc(100vh-80px)] lg:h-auto"
-          }`}
-        >
+        <div className="transition-all duration-300 lg:flex-1 lg:h-auto h-[300px]">
           <Map isNavVisible={isNavVisible} />
         </div>
       </div>
