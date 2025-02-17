@@ -13,10 +13,10 @@ const MainPage: React.FC = () => {
   };
 
   return (
-    <>
+    <div className="h-screen flex flex-col">
       <Nav />
-      <div className="flex flex-col-reverse lg:flex-row">
-        <div className="w-full lg:w-[25%]">
+      <div className="flex flex-col-reverse lg:flex-row relative overflow-hidden z-40">
+        <div className="w-full lg:w-[25%] relative z-50 lg:bg-white">
           <NavToggle onToggle={toggleNav} isNavVisible={isNavVisible} />
           <Title className="mt-4 ml-2 text-start hidden lg:block" />
           <PlaceListTable disabled={false} isVisible={isNavVisible} />
@@ -31,7 +31,7 @@ const MainPage: React.FC = () => {
           <Map />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
