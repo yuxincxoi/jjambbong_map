@@ -17,7 +17,7 @@ const MainPage: React.FC = () => {
       <Nav />
       <div className="flex flex-col-reverse lg:flex-row">
         <div className="w-full lg:w-[25%]">
-          <NavToggle onToggle={toggleNav} />
+          <NavToggle onToggle={toggleNav} isNavVisible={isNavVisible} />
           <Title className="mt-4 ml-2 text-start hidden lg:block" />
           <PlaceListTable disabled={false} isVisible={isNavVisible} />
         </div>
