@@ -75,11 +75,7 @@ const PlaceListTable: React.FC<PlaceListTableProps> = ({
 
   return (
     <>
-      <div
-        className={`${
-          isVisible ? "translate-y-0" : "translate-y-full"
-        } border-t-[1px] border-gray-200`}
-      >
+      <div className={`${isVisible ? "translate-y-0" : "translate-y-full"}`}>
         <InputSearch
           onSearch={handleSearch}
           disabled={disabled}
