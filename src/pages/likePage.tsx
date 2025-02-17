@@ -13,11 +13,11 @@ export default function LikePage() {
   };
 
   return (
-    <>
+    <div className="h-screen flex flex-col">
       <Nav />
-      <div className="flex flex-col-reverse lg:flex-row">
-        <div className="w-full lg:w-[25%]">
-          <NavToggle onToggle={toggleNav} />
+      <div className="flex flex-col-reverse lg:flex-row relative overflow-hidden z-40">
+        <div className="w-full lg:w-[25%] relative z-50">
+          <NavToggle onToggle={toggleNav} isNavVisible={isNavVisible} />
           <Title className="mt-4 ml-2 text-start hidden lg:block" />
           <PlaceListTable disabled={true} isVisible={isNavVisible} />
         </div>
@@ -31,6 +31,6 @@ export default function LikePage() {
           <Map />
         </div>
       </div>
-    </>
+    </div>
   );
 }
