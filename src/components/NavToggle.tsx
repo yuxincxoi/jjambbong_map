@@ -1,7 +1,7 @@
 import Button from "./Button";
 import { NavToggleProps } from "../interfaces/components/NavToggle.interface";
 
-const NavToggle: React.FC<NavToggleProps> = ({ onToggle }) => {
+const NavToggle: React.FC<NavToggleProps> = ({ onToggle, isNavVisible }) => {
   return (
     <div className="lg:hidden z-50">
       <Button
