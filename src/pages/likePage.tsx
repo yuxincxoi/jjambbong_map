@@ -28,7 +28,7 @@ export default function LikePage() {
               : "h-[calc(100vh-80px)] lg:h-auto"
           }`}
         >
-          <Map />
+          <Map isNavVisible={isNavVisible} />
         </div>
       </div>
     </div>
