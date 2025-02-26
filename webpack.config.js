@@ -13,14 +13,16 @@ const definePlugin = new webpack.DefinePlugin({
 });
 
 module.exports = {
-  mode: "production", // 또는 "develop"
-  entry: "./src/index.tsx",
+  mode: "development",
+  entry: { index: "./src/index.tsx", app: "./src/App.tsx" },
   output: {
     filename: "index.bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
   devServer: {
-    static: "./dist",
+    static: {
+      directory: path.resolve(__dirname, "dist"),
+    },
     port: 3000,
     open: true,
   },
