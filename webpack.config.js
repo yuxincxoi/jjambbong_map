@@ -47,5 +47,12 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".js", ".jsx", ".tsx", ".css"],
   },
-  plugins: [definePlugin],
+  plugins: [
+    definePlugin,
+    new HtmlWebpackPlugin({
+      template: "./index.html",
+      filename: "index.html",
+      chunks: ["index.bundle"],
+    }),
+  ],
 };
