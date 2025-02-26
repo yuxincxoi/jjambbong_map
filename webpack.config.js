@@ -16,7 +16,7 @@ module.exports = {
   mode: "development",
   entry: { index: "./src/index.tsx", app: "./src/App.tsx" },
   output: {
-    filename: "index.bundle.js",
+    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
   devServer: {
