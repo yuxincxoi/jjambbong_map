@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const dotenv = require("dotenv");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 // .env.local 파일에서 환경 변수 로드
 const env = dotenv.config({ path: ".env.local" }).parsed;
@@ -14,10 +15,11 @@ const definePlugin = new webpack.DefinePlugin({
 
 module.exports = {
   mode: "development",
-  entry: { index: "./src/index.tsx", app: "./src/App.tsx" },
+  entry: "./src/index.tsx",
   output: {
-    filename: "[name].bundle.js",
+    filename: "index.bundle.js",
     path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
   devServer: {
     static: {
@@ -25,6 +27,8 @@ module.exports = {
     },
     port: 3000,
     open: true,
+    hot: true,
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -50,9 +54,11 @@ module.exports = {
   plugins: [
     definePlugin,
     new HtmlWebpackPlugin({
-      template: "./index.html",
+      template: "src/index.html",
       filename: "index.html",
-      chunks: ["index.bundle"],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: "public/img", to: "img" }],
     }),
   ],
 };
